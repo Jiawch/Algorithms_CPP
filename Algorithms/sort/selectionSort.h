@@ -29,3 +29,20 @@ public:
 #endif
 
 
+
+/*! Author: jiawch
+ *! Date: 2020-10-07
+ * 选择排序
+ */
+
+void selectionSort(vector<int> &a){
+    for (int i = 0; i < a.size()-1; i++){       // 遍历n-1次
+        int min = i;
+        for (int j = i; j < a.size(); j++){     // 每次遍历，寻找第i个元素开始最小的元素
+            if (a[min] > a[j]){
+                min = j;
+            }
+        }
+        swap(a[min], a[i]);                     // 交换第i个元素与最小元素的位置
+    }
+}
