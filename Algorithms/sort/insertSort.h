@@ -25,3 +25,17 @@ public:
 #endif
 
 
+
+
+/*! Author: Jiawch
+ *! Date: 2021-10-07
+ * 插入排序
+ */
+
+void insertSort(vector<int> &a){
+    for (int i = 1; i < a.size(); i++){
+        for (int j = i-1; j >= 0 && a[j+1] < a[j]; j--){
+            swap(a[j], a[j+1]);
+        }
+    }
+}
