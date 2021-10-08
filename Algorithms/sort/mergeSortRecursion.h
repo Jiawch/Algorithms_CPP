@@ -69,12 +69,16 @@ void MergeSortRecursion<T>::merge(vector<T> &a, vector<T> &b, int low, int mid, 
  *  递归实现的归并排序
  */
 
-void mergeSort(vector<int> &a, vector<int> &b, int low, int high){
+void mergeSortRecursion(vector<int> &a){
+    vector<int> b(a.size());
+    sort(a, b, 0, a.size()-1);
+}
+void sort(vector<int> &a, vector<int> &b, int low, int high){
     if (low >= high)
         return;
     int mid = (low + high) / 2;
-    mergeSort(a, b, low, mid);      // 左半边排序
-    mergeSort(a, b, mid+1, high);   // 右半边排序
+    sort(a, b, low, mid);      // 左半边排序
+    sort(a, b, mid+1, high);   // 右半边排序
     merge(a, b, low, mid, high);    // 合并
 }
 void merge(vector<int> &a, vector<int> &b, int low, int mid, int high){
