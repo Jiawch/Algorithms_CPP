@@ -60,3 +60,38 @@ void MergeSortRecursion<T>::merge(vector<T> &a, vector<T> &b, int low, int mid, 
 }
 
 #endif
+
+
+
+
+/*! Author: Jiawch
+ *! Date: 2021-10-07
+ *  递归实现的归并排序
+ */
+
+void mergeSort(vector<int> &a, vector<int> &b, int low, int high){
+    if (low >= high)
+        return;
+    int mid = (low + high) / 2;
+    mergeSort(a, b, low, mid);      // 左半边排序
+    mergeSort(a, b, mid+1, high);   // 右半边排序
+    merge(a, b, low, mid, high);    // 合并
+}
+void merge(vector<int> &a, vector<int> &b, int low, int mid, int high){
+    int i = low;                    // i指向a左边数组的第一个元素
+    int j = mid + 1;                // j指向a右边数组的第一个元素
+    int k = low;                    // k为b中的指针
+    while (i <= mid && j <= high){
+        if (a[i] < a[j])
+            b[k++] = a[i++];
+        else
+            b[k++] = a[j++];
+    }
+    while (i <= mid)
+        b[k++] = a[i++];
+    while (j <= high)
+        b[k++] = a[j++];
+    // 将b[low ... high] 拷贝回 a[low ... high]
+    for (int i = low; i <= high; i++)
+        a[i] = b[i];
+}
