@@ -33,7 +33,7 @@ void MergeSortIteration<T>::mergeSort(vector<T> &a, int n){
 }
 
 // n是数组的长度
-// segmentSize是一个归并的片的大小
+// segmentSize是一个归并的片的大小, 每一个segmentSize里有序
 template <class T>
 void MergeSortIteration<T>::mergePass(vector<T> &a, vector<T> &b, int n, int segmentSize){
     int i = 0;
