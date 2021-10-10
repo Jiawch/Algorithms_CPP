@@ -84,11 +84,11 @@ void mergeSortIteration(vector<int> &a){
     vector<int> b(a.size());
     int segment_size = 1;
     while(segment_size < a.size()){
-        sortIteration(a, b, a.size(), segment_size);
+        _mergeSortIteration(a, b, a.size(), segment_size);
         segment_size *= 2;
     }
 }
-void sortIteration(vector<int> &a, vector<int> &b, int n, int segment_size){
+void _mergeSortIteration(vector<int> &a, vector<int> &b, int n, int segment_size){
     int i = 0;
     for (; i + 2*segment_size <= n; i += 2*segment_size){
         merge(a, b, i, i + segment_size - 1, i + 2*segment_size - 1);
