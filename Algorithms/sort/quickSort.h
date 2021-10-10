@@ -47,3 +47,37 @@ int QuickSort<T>::partition(vector<T> &a, int low, int high){
 
 #endif
 
+
+
+/*! Author: Jiawch
+ *! Date: 2021-10-10
+ * 快速排序
+ */
+
+void quickSort(vector<int> &a) {
+    int low = 0;
+    int high = a.size() - 1;
+    _quickSort(a, low, high);
+}
+
+void _quickSort(vector<int> &a, int low, int high) {
+    if (low >= high) return;
+
+    int mid = partition(a, low, high);
+    _quickSort(a, low, mid - 1);
+    _quickSort(a, mid + 1, high);
+}
+
+int partition(vector<int> &a, int low, int high) {
+    int key = a[low];
+
+    while (low < high) {
+        while(low < high && a[high] >= key) high--;
+        a[low] = a[high];
+        while(low < high && a[low] <= key)  low++;
+        a[high] = a[low];
+    }
+
+    a[low] = key;
+    return low;
+}
