@@ -97,3 +97,82 @@ int main() {
     cout << endl;    
 }
 
+
+
+/*! Author: Jiawch
+ *! Date: 2021-10-11
+ *! 链表的快速排序
+ *  思路：
+ *    对一个链表，以第一个结点head作为key，然后遍历链表：
+ *    <=key的作为一个链表L1，>key的作为一个链表L2
+ *    递归的将两个链表L1 L2排序，然后L1->head->L2
+ *  时间复杂度：O(nlogn)
+ *  空间复杂度：O(1)
+ */
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(): val(0), next(nullptr) {}
+    ListNode(int val): val(val), next(nullptr) {}
+    ListNode(int val, ListNode *next): val(val), next(next) {}
+};
+
+
+void quickSort(ListNode *head) {
+    ListNode *end = getEnd(head);
+    _quickSort(head, end);
+}
+
+ListNode* getEnd(ListNode *head) {
+    if (head == nullptr)    return head;
+    ListNode *p = head;
+    while (p->next) {
+        p = p->next;
+    }
+    return p;
+}
+
+void _quickSort(ListNode* &head, ListNode* &end) {
+    if (head == nullptr || head->next == nullptr)   return;
+
+    ListNode *head1 = new ListNode(0),
+             *head2 = new ListNode(0),
+             *end1 = head1,
+             *end2 = head2;
+
+    int key = head->val;
+    ListNode *p = head->next;
+    head->next = nullptr;
+
+    while (p) {
+        if (p->val <= key) {
+            end1->next = p;
+            end1 = end1->next;
+        } else {
+            end2->next = p;
+            end2 = end2->next;
+        }
+
+        p = p->next;
+    }
+    end1->next = nullptr;
+    end2->next = nullptr;
+
+    _quickSort(head1->next, end1);
+    _quickSort(head2->next, end2);
+
+    if (end1 && head2->next) {
+        end1->next = head;
+        head->next = head2->next;
+        head = head1->next;
+        end = end2;
+    } else if (end1) {
+        end1->next = head;
+        head = head1->next;
+        end = end1->next;
+    } else if (head2->next) {
+        head->next = head2->next;
+        end = end2;
+    }
+}
