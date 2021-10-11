@@ -61,20 +61,19 @@ void quickSort(vector<int> &a) {
 }
 
 void _quickSort(vector<int> &a, int low, int high) {
-    if (low >= high) return;
+    if (low >= high)    return;
 
-    int mid = partition(a, low, high);
-    _quickSort(a, low, mid - 1);
-    _quickSort(a, mid + 1, high);
+    int mid = partition(a, low, high);  // 切分
+    _quickSort(a, low, mid - 1);        // 将左半部分排序
+    _quickSort(a, mid + 1, high);       // 将右半部分排序
 }
 
 int partition(vector<int> &a, int low, int high) {
     int key = a[low];
-
     while (low < high) {
-        while(low < high && a[high] >= key) high--;
-        a[low] = a[high];
-        while(low < high && a[low] <= key)  low++;
+        while (low < high && a[high] >= key)    high--;     // 注意是key <= a[high]，而不是key < a[high]，否则陷入死循环
+        a[low] = a[high];                                   // 因为左和右分别是`不大于`与`不小于`key的数
+        while (low < high && a[low] <= key)     low++;
         a[high] = a[low];
     }
 
