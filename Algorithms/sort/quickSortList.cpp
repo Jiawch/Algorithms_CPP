@@ -119,31 +119,24 @@ struct ListNode {
 };
 
 
-void quickSort(ListNode *head) {
+ListNode* quickSort(ListNode* head) {
+    if (head == nullptr || head->next == nullptr)   return head;
     ListNode *end = getEnd(head);
     _quickSort(head, end);
-}
-
-ListNode* getEnd(ListNode *head) {
-    if (head == nullptr)    return head;
-    ListNode *p = head;
-    while (p->next) {
-        p = p->next;
-    }
-    return p;
+    return head;
 }
 
 void _quickSort(ListNode* &head, ListNode* &end) {
     if (head == nullptr || head->next == nullptr)   return;
 
+    int key = head->val;
+    ListNode *p = head->next;
+    head->next = nullptr;
+
     ListNode *head1 = new ListNode(0),
              *head2 = new ListNode(0),
              *end1 = head1,
              *end2 = head2;
-
-    int key = head->val;
-    ListNode *p = head->next;
-    head->next = nullptr;
 
     while (p) {
         if (p->val <= key) {
@@ -156,6 +149,7 @@ void _quickSort(ListNode* &head, ListNode* &end) {
 
         p = p->next;
     }
+
     end1->next = nullptr;
     end2->next = nullptr;
 
@@ -175,4 +169,12 @@ void _quickSort(ListNode* &head, ListNode* &end) {
         head->next = head2->next;
         end = end2;
     }
+}
+
+ListNode* getEnd(ListNode* head) {
+    if (head == nullptr || head->next == nullptr)   return head;
+    while (head->next) {
+        head = head->next;
+    }
+    return head;
 }
