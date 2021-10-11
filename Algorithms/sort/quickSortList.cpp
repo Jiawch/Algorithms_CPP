@@ -126,18 +126,21 @@ ListNode* quickSort(ListNode* head) {
     return head;
 }
 
+// 使用引用指针
 void _quickSort(ListNode* &head, ListNode* &end) {
     if (head == nullptr || head->next == nullptr)   return;
 
+    // 将首节点孤立出来
     int key = head->val;
     ListNode *p = head->next;
     head->next = nullptr;
 
-    ListNode *head1 = new ListNode(0),
-             *head2 = new ListNode(0),
-             *end1 = head1,
-             *end2 = head2;
+    ListNode *head1 = new ListNode(0),  // <= key的链表的头结点，注意是头结点，不是首节点，设置头结点为了简化代码
+             *head2 = new ListNode(0),  // > key的链表的头结点
+             *end1 = head1,             // <= key的链表的尾结点
+             *end2 = head2;             // > key的链表的尾结点
 
+    // 获得元素都<=key的链表和元素都>key的链表
     while (p) {
         if (p->val <= key) {
             end1->next = p;
@@ -153,19 +156,21 @@ void _quickSort(ListNode* &head, ListNode* &end) {
     end1->next = nullptr;
     end2->next = nullptr;
 
+    // 对左右两个链表递归排序
     _quickSort(head1->next, end1);
     _quickSort(head2->next, end2);
 
-    if (end1 && head2->next) {
+    // 连接：左链表->head->右链表，重新设置head和end指针
+    if (end1 && head2->next) {      // 如果左右两个链表都存在
         end1->next = head;
         head->next = head2->next;
         head = head1->next;
         end = end2;
-    } else if (end1) {
+    } else if (end1) {              // 如果只有左链表，而右链表不存在
         end1->next = head;
         head = head1->next;
         end = end1->next;
-    } else if (head2->next) {
+    } else if (head2->next) {       // 如果只有右链表，而左链表不存在
         head->next = head2->next;
         end = end2;
     }
