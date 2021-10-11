@@ -79,7 +79,7 @@ int QuickSortByStack<T>::partition(vector<T>& a, int low, int high){
 /*! Author: Jiawch
  *! Date: 2021-10-11
  * 快速排序的非递归版本
- * 使用栈来实现，而不是迭代。
+ * 使用栈来实现，而不是递归。
  * 1. 申请一个栈，存放排序数组的起始位置和终点位置。
  * 2. 将整个数组的起始位置low和终点位置high进栈
  * 3. 出栈，对出栈的数据进行排序，查找基准数据所在最终的位置mid。
