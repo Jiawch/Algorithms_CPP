@@ -48,7 +48,7 @@ int searchLast(vector<int>& a, const T target) {
 	int low = 0;
 	int high = a.size() - 1;
 	while (low < high) {
-		int mid = (low + high + 1) / 2;
+		int mid = (low + high + 1) / 2;      // 如果还是 mid = (low + high) / 2 的话，那么`两个一样的数`会在 low = mid 的作用下无限循环
 		if (target < a[mid]) high = mid - 1;
 		else                 low = mid;
 	}
