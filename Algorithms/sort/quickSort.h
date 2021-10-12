@@ -52,6 +52,8 @@ int QuickSort<T>::partition(vector<T> &a, int low, int high){
 /*! Author: Jiawch
  *! Date: 2021-10-10
  * 快速排序
+ * 右指针指向大于比较元素（序列）的向左一位
+ * 左指针指向小于比较元素（序列）的向右一位
  */
 
 void quickSort(vector<int> &a) {
