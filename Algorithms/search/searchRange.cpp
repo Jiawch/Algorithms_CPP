@@ -67,3 +67,41 @@ int main() {
 	return 0;
 }
 
+
+
+/*! Author: Jiawch
+ *! Date: 2021-10-15
+ *  二分查找
+ */
+
+// 从有重复元素有序数组中找到第一个等于val的元素的下标，找不到时返回-1
+int searchFirst(vector<int> a, int x) {
+    int low = 0;
+    int high = a.size() - 1;
+
+    while (low < high) {
+        int mid = (low + high) / 2;
+        if (x < a[mid]) high = mid - 1;
+        else if (x > a[mid]) low = mid + 1;
+        else high = mid;
+    }
+
+    if (a[low] == x) return low;
+    return -1;
+}
+
+// 从有重复元素有序数组中找到最后一个等于val的元素的下标，找不到时返回-1
+int searchLast(vector<int> a, int x) {
+    int low = 0;
+    int high = a.size() - 1;
+
+    while (low < high) {
+        int mid = (low + high + 1) / 2;
+        if (x < a[mid]) high = mid - 1;
+        else if (x > a[mid]) low = mid + 1;
+        else low = mid;
+    }
+
+    if (a[low] == x) return low;
+    return -1;
+}
