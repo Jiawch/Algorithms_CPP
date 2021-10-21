@@ -72,3 +72,76 @@ int main(){
     return 0;
 }
 
+
+
+
+/*! Author: Jiawch
+ *! Date  : 2021-10-21
+ * 从排序矩阵中查找从小到大的第k个数。
+ * 排序矩阵定义为：每一行递增，每一列也递增。
+ * 思想：二分查找。（k从1开始）
+ *       先找出矩阵中最小的元素low和最大的元素high，计算其均值mid；
+ *       计算矩阵中小于等于mid的元素的个数count：
+ *           如果count < k， （即第k小大于中间元素），则第k小在矩阵[mid+1, high]的后半部分
+ *           如果count > k， （即第k小小于中间元素），则第k小在矩阵[low, mid-1]的前半部分
+ *           如果count = k， 则第k小在[low, mid]的前半部分
+ *              实际为，如果mid落在数组上，第k小在[low, mid],
+ *                     如果mid不落在数组上，第k小在[low, mid-1].
+ *       不断缩减矩阵范围，直到low == high时，矩阵中剩下的这个元素就是第k个数
+ */
+
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+
+// 查找排序矩阵中，小于等于mid的元素的个数
+int _getLessEqual(vector<vector<int>> matrix, int mid) {
+    int m = matrix.size();
+    int n = matrix[0].size();
+    int count = 0;
+    for (int j = 0; j <= n-1; j++) {
+        for (int i = 0; i <= m-1; i++) {
+            if (matrix[i][j] <= mid)
+                count += 1;
+            else
+                break;
+        }
+    }
+    return count;
+}
+
+// 从排序矩阵中查找从小到大的第k个数（k从1开始），返回其值
+int _kthSmallest(vector<vector<int>> matrix, int k) {
+    int m = matrix.size(),
+        n = matrix[0].size();
+
+    int low = matrix[0][0],
+        high = matrix[m-1][n-1];
+
+    while (low < high) {
+        int mid = low + (high - low) / 2;
+        int count = _getLessEqual(matrix, mid);
+        if (count < k) low = mid + 1;
+        else if (count > k) high = mid - 1;
+        else high = mid;
+    }
+
+    return low;
+}
+
+void testSearch(){
+    vector<vector<int>> matrix = {
+        {1, 5, 7},
+        {3, 7, 8},
+        {4, 8, 9}
+    };
+    cout << _kthSmallest(matrix, 4) << endl; // 5
+}
+
+int main(){
+    testSearch();
+    return 0;
+}
