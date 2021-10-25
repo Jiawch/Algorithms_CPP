@@ -10,6 +10,10 @@
 
 ### 3 C\+\+ STL的堆
  - [priority_queue](http://www.cplusplus.com/reference/queue/priority_queue/?kw=priority_queue)：基于向量来实现的大顶堆，可以自定义比较函数，因此也可以作为小顶堆。
+ ```
+ priority_queue<int, vector<int>, greater<int> > minHeap;
+ priority_queue<int, vector<int>, less<int> > maxHeap;
+ ```
 
 ### 4 堆的应用
  - [堆排序](../../Algorithms/sort/heapSort.h)
