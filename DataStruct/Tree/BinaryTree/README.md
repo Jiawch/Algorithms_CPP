@@ -33,7 +33,7 @@
     - void **postOrder**()：后续遍历
     - void **postOrderUnRecursive**()：后序遍历（非递归版本）
     - void **levelOrder**()：层次遍历
-    - int **height**()：树的高度
+    - [int **height**()](./treeDepth.cpp)：树的高度
 
 ### 3 二叉树的遍历
 - 前序遍历  
