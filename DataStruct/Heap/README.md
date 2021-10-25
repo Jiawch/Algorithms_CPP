@@ -11,6 +11,7 @@
 ### 3 C\+\+ STL的堆
  - [priority_queue](http://www.cplusplus.com/reference/queue/priority_queue/?kw=priority_queue)：基于向量来实现的大顶堆，可以自定义比较函数，因此也可以作为小顶堆。
  ```
+ #include <queue>
  priority_queue<int, vector<int>, greater<int> > minHeap;
  priority_queue<int, vector<int>, less<int> > maxHeap;
  ```
@@ -19,3 +20,36 @@
  - [堆排序](../../Algorithms/sort/heapSort.h)
  - [机器调度](../../Algorithms/greedy_method/LPTSchedule.cpp)
  - 霍夫曼编码
+
+### 5 大顶堆例子
+```
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+
+int main () {
+    vector<int> a = {50, 45, 40, 20, 25, 35, 30, 10, 15};
+    stable_sort(a.begin(), a.end(), greater<int>());
+    for (int i = 0; i < a.size(); i++) {
+        cout << a[i] << ' ';            // 50 45 40 35 30 25 20 15 10 
+    }
+    cout << endl;
+
+    vector<int> b = {50, 45, 40, 20, 25, 35, 30, 10, 15};
+    priority_queue<int, vector<int>, less<int> > maxHeap;
+    for (int i = 0; i < b.size(); i++) {
+        maxHeap.push(b[i]);
+    }
+    while (!maxHeap.empty()) {
+        cout << maxHeap.top() << ' ';   // 50 45 40 35 30 25 20 15 10 
+        maxHeap.pop();
+    }
+    cout << endl;
+
+    return 0;
+}
+```
+
