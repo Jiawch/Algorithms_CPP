@@ -54,6 +54,6 @@
      - 一般情况下时间复杂度O(E+V)，最坏情况下时间复杂度是O(VE)
 
 ### 6 图的两种遍历
-1. [DFS](./traverse.cpp)
-2. [BFS](./traverse.cpp)
+1. [DFS](./traverse.cpp#L17)
+2. [BFS](./traverse.cpp#L44)
 
