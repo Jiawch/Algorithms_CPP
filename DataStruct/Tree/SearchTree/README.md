@@ -28,6 +28,10 @@
  - 扩展功能：查找小于等于theKey的最大元素：pair<const K, E>\* **findLE**(const K& theKey)
  - 扩展功能：查找大于等于theKey的最小元素：pair<const K, E>\* **findGE**(const K& theKey)
  - 代码实现：[二叉搜索树](./binarySearchTree.h)
+ - [查找](./find.cpp)：
+   - 等于target的值
+   - 大于target的最小值
+   - 小于target的最大值
 
 ### 2 平衡搜索树
 #### 2.1 AVL树
