@@ -30,8 +30,8 @@
  - 代码实现：[二叉搜索树](./binarySearchTree.h)
  - [查找](./find.cpp)：
    - 等于target的值
-   - 大于target的最小值
-   - 小于target的最大值
+   - 大于等于target的最小值
+   - 小于等于target的最大值
 
 ### 2 平衡搜索树
 #### 2.1 AVL树
