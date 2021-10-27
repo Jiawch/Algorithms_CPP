@@ -8,6 +8,7 @@
  - [堆](./DataStruct/Heap)
  - [树](./DataStruct/Tree)
  - [图](./DataStruct/Graph)
+ - [哈希表](./DataStruct/Hash)
 
 ### 算法
  - [数学](./Algorithms/math)
