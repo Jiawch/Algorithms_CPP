@@ -59,6 +59,7 @@ TreeNode* findNoRecursion (TreeNode* t, int target) {
  *  如果当前节点为空，那么搜索树不包含任何元素，直接返回节点。
  *  如果不为空，
  *      如果当前节点 > target，则`大于等于target的最小值`在当前节点左子树或者即为当前节点
+ *          如果左子树查找为空，则当前节点为所求，否则为左子树返回值
  *      如果当前节点 < target，则`大于等于target的最小值`在当前节点右子树
  *      如果当前节点 = target，则`大于等于target的最小值`为当前节点
  */
@@ -115,6 +116,7 @@ TreeNode* fineGENoRecursion (TreeNode* t, int target) {
  *  如果不为空，
  *      如果当前节点 > target，则`小于等于target的最大值`在当前节点左子树
  *      如果当前节点 < target，则`小于等于target的最大值`在当前节点右子树或当前节点
+ *          如果右子树查找返回空，则当前节点为所求，否则为右子树返回值
  *      如果当前节点 = target，则`小于等于target的最大值`为当前节点
  */
 
