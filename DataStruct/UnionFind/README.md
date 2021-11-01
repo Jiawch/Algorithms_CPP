@@ -112,6 +112,6 @@ void union(int x, int y) {
 }
 ```
 
-### Ref
+> Ref  
 > [算法学习笔记(1) : 并查集](https://zhuanlan.zhihu.com/p/93647900)  
 > [并查集入门](https://www.cnblogs.com/PegasusWang/archive/2013/04/20/3031819.html)
