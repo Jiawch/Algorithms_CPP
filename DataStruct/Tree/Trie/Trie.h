@@ -112,3 +112,87 @@ bool Trie::startsWith(string prefix) {
 }
 
 #endif
+
+/*! Author: Jiawch
+ *! Date: 2021-11-01
+ * Trie树：插入、查找
+ */
+
+
+struct TrieNode {
+    char value;     // 键值
+    bool is_end;    // 以该节点结尾，是否构成一个单词标志
+    unordered_map<char, *TrieNode > child;  // 保存指向孩子节点的指针，用map而非vector是因为`map的find函数比较方便`
+
+    TrieNode (char value) {
+        value = value;
+        is_end = false;
+    }
+};
+
+void insert (TrieNode* root, string word) {
+    TreeNode *p = root;
+    int i = 0;
+    int len = word.size()
+    while (i < len) {
+        // 字符已在树中 
+        if (p->child.find(word[i]) != p->child.end()) {           
+            if (i == len-1) (p->child[word[i]])->is_end = true; // 构成单词标志
+            p = p->child[word[i]];
+            i++;
+        }
+        // 如果字符不在树中，创建新的结点
+        else {                                                    
+            TrieNode *q = new TrieNode(word[i]);
+            if (i == len-1) q->is_end = true;                   // 构成单词标志
+            p->child[word[i]] = q;
+            p = q;
+        }
+    }
+}
+
+
+bool search (TrieNode* root, string word) {
+    TrieNode *p = root;
+    int i = 0;
+    int len = word.size();
+    while (i < len) {
+        // 当前词在树中没有匹配
+        if (p->child.find(word[i]) == p->child.end()) {
+            return false;
+        }
+        // 当前词在树中匹配
+        else {
+            p = p->child[word[i]];
+            if (i == len-1) {       // 最后一个节点包含构成单词标志
+                if (p->is_end == true)
+                    return true;
+                else
+                    return false;
+            }
+        }
+        i++;
+    }
+
+    return false;
+}
+
+
+bool startWith (TrieNode* root, string prefix) {
+    TrieNode *p = root;
+    int i = 0;
+    int len = prefix.size();
+    while (i < len) {
+        // 当前词在树中没有匹配
+        if (p->child.find(prefix[i]) == p->child.end()) {
+            return false;
+        }
+        // 当前词在树中匹配
+        else {
+            p = p->child[prefix[i]];
+        }
+        i++;
+    }
+    // 如果前缀中所以单词都在树中，返回true
+    return true;
+}
