@@ -20,3 +20,11 @@
  - [贪心法](./Algorithms/greedy_method)
  - [分治法](./Algorithms/divede_and_conquer_method)
  - [动态规划](./Algorithms/dynamic_programming)
+
+### 命名规范
+> 以 algorithm cpp 为例
+ - 目录：algorithm-cpp
+ - 文件：algorithm_cpp
+ - 类名：AlgorithmCpp
+ - 函数名：algorithmCpp
+ - 变量名：algorithm_cpp
