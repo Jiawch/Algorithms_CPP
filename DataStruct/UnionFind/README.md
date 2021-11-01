@@ -49,3 +49,65 @@ struct unionFindNode {
 
 ### 5 应用
  - [最小生成树的Kruskal算法]()
+
+
+## 并查集
+### 1 概述
+ - 并查集是一种树型的数据结构，用于处理一些**不相交集合**的合并及查询问题。
+ - 通常使用森林来表示并查集，其中每一棵树是一个集合；树的每个节点就表示集合中的一个元素，树根对应的元素就是该集合的代表。
+ - 并查集支持的3个基本操作：
+   - 建立并查集（初始化后每一个元素的父亲节点是它本身）
+   - 查找一个元素所在的集合
+   - 合并两个集合
+
+### 2 优化
+- 路径压缩
+   - 在查询的过程中，把沿途的每个节点的父节点都设为根节点即可。下一次再查询时，我们就可以省很多事。
+- 按秩合并
+   - 高度小的作为高度大的子树
+
+### 3 实现
+```
+#include <iostream>
+
+using namespace std;
+
+#define MAX 100
+
+int father[MAX];    // father[x]表示x的父节点
+int rank[MAX];      // rank[x]表示以x为根节点的树的高度（从1开始）
+
+
+/* 初始化集合，n表示节点个数，从1开始 */
+void init(int n) {
+    for (int i = 1; i <= n; i++) {
+        father[i] = i;
+        rank[i] = 1;
+    }
+}
+
+
+int find(int x) {
+    if (x == father[x])
+        return x;
+    else {
+        father[x] = find(father[x]);    // 把沿途的每个节点的父节点都设为根节点
+        return father[x];               // 返回父节点
+    }
+}
+
+void union(int x, int y) {
+    //先找到两个根节点
+    x = find(x);
+    y = find(y);
+    if (x == y) return;         // 如果根节点相同同，直接返回
+    if (rank[x] > rank[y]) {    // 高度小的作为高度大的子树
+        father[y] = x;
+    } else if (rank[x] < rank[y]) {
+        father[x] = y;
+    } else {                    // 如果深度相同，则新的根节点的深度+1
+        father[y] = x;
+        rank[x]++;
+    }
+}
+```
