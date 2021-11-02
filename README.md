@@ -32,4 +32,5 @@
  - 类名：AlgorithmCpp
  - 函数名：algorithmCpp
  - 变量名：algorithm_cpp
+ - 结构体：algorithmCpp，AlgorithmCpp
 
