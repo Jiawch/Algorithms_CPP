@@ -96,7 +96,7 @@ for(int i = 1; i <= n; i++) {
 
 以快排为例。快排的性能取决于其递归的深度，可以用递归树来描述递归算法的执行情况。如图所示，它是{50,10,90,30, 70,40,80,60,20}在快速排序过程中的递归过程。由于我们的第一个关键字是50，正好是待排序的序列的中间值，因此递归树是平衡的，此时性能也比较好。
 
-<img width="320" alt="image" src=".recursion_tree.png">
+<img width="320" alt="image" src="./recursion_tree.png">
 
 
 ### Reference
