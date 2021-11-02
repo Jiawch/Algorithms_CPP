@@ -72,9 +72,9 @@ void heapSort(vector<int> &a) {
         sink(a, i, n);
 
     // 不断将堆顶元素与最后一个元素交换，并让堆的大小减1
-    for (int i = n; i >= 0; i--) {
+    for (int i = n; i >= 0; i--) {  // 执行n次
         swap(a[0], a[n--]);
-        sink(a, 0, n);
+        sink(a, 0, n);              // 这条语句的时间复杂度为O(logn)，所以下沉排序的时间复杂度为O(nlogn)
     }
 }
 
