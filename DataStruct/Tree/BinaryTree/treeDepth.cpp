@@ -7,7 +7,7 @@ int treeHeight (TreeNode* t) {
     if (!t) return 0;
     int lh = treeHeight(t->left);
     int lr = treeHeight(t->right);
-    return lh > lr ? lh : lr;
+    return lh > lr ? lh+1 : lr+1;
 }
 
 
