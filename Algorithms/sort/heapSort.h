@@ -59,7 +59,7 @@ void HeapSort<T>::sink(vector<T> &a, int k, int n){
  * 下标从0开始的二叉树，第i个结点的父节点为：(i-1)/2，左孩子为：2*i+1，右孩子为：2*i+2
  * 重复执行如下两个阶段
  *  1. 构造大顶堆
- *  2. 将堆顶元素与最后一个元素交换
+ *  2. 下沉排序
  */
 
 
@@ -82,7 +82,7 @@ void heapSort(vector<int> &a) {
 void sink(vector<int> &a, int k, int n) {
     while (2 * k + 1 <= n) {      // k至少还有一个孩子
         int i = 2 * k + 1;
-        if (i+1<=n && a[i] < a[i+1]) i++;   // 取出孩子结点中大的那个
+        if (i < n && a[i] < a[i+1]) i++;   // 取出孩子结点中大的那个
         if (a[k] > a[i]) break;             // 如果孩子结点中大的那个也比a[k]小，则下沉结束，退出循环
         swap(a[k], a[i]);
         k = i;
