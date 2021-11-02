@@ -164,3 +164,23 @@ void levelOrder(TreeNode<T> *t) {
 }
 //————————————————————————————————————————层次遍历————————————————————————————————————————
 
+/*
+ *！Author: Jiawch
+ *！Date: 20211102
+ * 层次遍历
+ */
+void levelOrder(TreeNode* root) {
+    if (!root) return;
+
+    TreeNode *p = root;
+    queue<TreeNode*> q;
+
+    q.push(p);
+    while (!q.empty()) {
+        p = q.front();
+        q.pop();
+        visit(p->value);
+        if (p->left) q.push(p->left);
+        if (p->right) q.push(p->right);
+    }
+}
