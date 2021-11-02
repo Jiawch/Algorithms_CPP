@@ -123,6 +123,29 @@ T（n）≤nT（1）+（log2n）×n= O(nlogn)
 
 就空间复杂度来说，主要是递归造成的栈空间的使用，最好情况，递归树的深度为log<sub>2</sub>n下取整+1，其空间复杂度也就为O(logn)，最坏情况，需要进行n‐1递归调用，其空间复杂度为O(n)，平均情况，空间复杂度也为O(logn)。
 
+```
+\*快速排序*\
+void _quickSort(vector<int> &a, int low, int high) {
+    if (low >= high)    return;
+
+    int mid = partition(a, low, high);  // 切分
+    _quickSort(a, low, mid - 1);        // 将左半部分排序
+    _quickSort(a, mid + 1, high);       // 将右半部分排序
+}
+
+int partition(vector<int> &a, int low, int high) {          // 时间复杂度为O(high-low)
+    int key = a[low];
+    while (low < high) {
+        while (low < high && a[high] >= key)    high--;     // 注意是key <= a[high]，而不是key < a[high]，否则陷入死循环
+        a[low] = a[high];                                   // 因为左和右分别是`不大于`与`不小于`key的数
+        while (low < high && a[low] <= key)     low++;
+        a[high] = a[low];
+    }
+
+    a[low] = key;
+    return low;
+}
+```
 
 ### Reference
 > [*算法的时间与空间复杂度（一看就懂*）](https://zhuanlan.zhihu.com/p/50479555)
