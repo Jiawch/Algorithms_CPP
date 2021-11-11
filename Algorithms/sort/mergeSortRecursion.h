@@ -69,33 +69,48 @@ void MergeSortRecursion<T>::merge(vector<T> &a, vector<T> &b, int low, int mid, 
  *  递归实现的归并排序
  */
 
-void mergeSortRecursion(vector<int> &a){
+void mergeSort(vector<int> &a)
+{
+    int low = 0;
+    int high = a.size() - 1;
     vector<int> b(a.size());
-    _mergeSortRecursion(a, b, 0, a.size()-1);
+    _mergeSort(a, b, low, high);
 }
-void _mergeSortRecursion(vector<int> &a, vector<int> &b, int low, int high){
-    if (low >= high)
-        return;
+
+void _mergeSort(vector<int> &a, vector<int> &b, int low, int high)
+{
+    if (low >= high) return;
+
     int mid = (low + high) / 2;
-    _mergeSortRecursion(a, b, low, mid);      // 左半边排序
-    _mergeSortRecursion(a, b, mid+1, high);   // 右半边排序
+    _mergeSort(a, b, low, mid);     // 左半边排序
+    _mergeSort(a, b, mid+1, high);  // 右半边排序
     merge(a, b, low, mid, high);    // 合并
 }
-void merge(vector<int> &a, vector<int> &b, int low, int mid, int high){
-    int i = low;                    // i指向a左边数组的第一个元素
-    int j = mid + 1;                // j指向a右边数组的第一个元素
-    int k = low;                    // k为b中的指针
-    while (i <= mid && j <= high){
-        if (a[i] < a[j])
-            b[k++] = a[i++];
-        else
-            b[k++] = a[j++];
+
+void merge(vector<int> &a, vector<int> &b, int low, int mid, int high)
+{
+    int i = low,                    // i指向a左边数组的第一个元素
+        j = mid + 1,                // j指向a右边数组的第一个元素
+        k = low;                    // k为b中的指针
+
+    while (i <= mid && j <= high)
+    {
+        if (a[i] <= a[j])   b[k++] = a[i++];
+        else                b[k++] = a[j++];
     }
+
     while (i <= mid)
+    {
         b[k++] = a[i++];
+    }
     while (j <= high)
+    {
         b[k++] = a[j++];
+    }
+
     // 将b[low ... high] 拷贝回 a[low ... high]
     for (int i = low; i <= high; i++)
+    {
         a[i] = b[i];
+    }
 }
