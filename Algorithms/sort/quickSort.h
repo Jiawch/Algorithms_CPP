@@ -70,6 +70,13 @@ void _quickSort(vector<int> &a, int low, int high) {
     _quickSort(a, mid + 1, high);       // 将右半部分排序
 }
 
+/*
+ * partition 有一个需要注意的地方就是
+ * 循环调教 low < high 需不需要取 `=`，
+ * low 的含义是其左边所有元素都小于 `key`
+ * high 的含义是其右边所有的元素都大于 `key`
+ * 所以 low == high 时，mid 就已经被找到，所以不用考虑 `=`
+ */
 int partition(vector<int> &a, int low, int high) {
     int key = a[low];
     while (low < high) {
