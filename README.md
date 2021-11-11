@@ -26,11 +26,17 @@
  - [空间复杂度](./Complexity/README.md)
 
 ### 命名规范
-> 以 algorithm cpp 为例
+```
+ 以 algorithm cpp 为例
  - 目录：algorithm-cpp
  - 文件：algorithm_cpp
  - 类名：AlgorithmCpp
- - 函数名：algorithmCpp
+ - 函数名：AlgorithmCpp
+ - 结构体：AlgorithmCpp
  - 变量名：algorithm_cpp
- - 结构体：algorithmCpp，AlgorithmCpp
-
+ - 结构体变量名：algorithm_cpp_
+ - 隐函数/隐变量：_AlgorithmCpp/_algorithm_cpp
+ 
+ 花括弧占一行
+ 关键字（if，while，for）后空一个，函数名后不用
+```
