@@ -111,5 +111,90 @@ struct GraphList {
 
 
 
+/*! Author: Jiawch
+ *! Date: 2021-11-11
+ * 图的两种遍历v2
+ */
+
+struct Graph {
+    vector<int> vexs;                   // 顶点表
+    vector<vector<int> > adj_matrix;    // 边表，邻接矩阵
+    vector<bool> visited;               // 访问标志
+};
+
+
+
+void DFS(Graph g)
+{
+    int num_ves = g.vexs.size();
+
+    // 初始化图
+    for (int i = 0; i < num_ves; i++)
+    {
+        g.visited[i] = false;
+    }
+
+    // 若是连通图，只会执行一次
+    for (int i = 0; i < num_ves; i++)
+    {
+        if (g.visited[i] == false)
+        {
+            _DSF(g, i);
+        }
+    }
+}
+
+void _DFS(Graph &g, int i)
+{
+    visit(g.vexs[i]);
+    g.visited[i] = true;
+
+    for (int j = 0; j < g.vexs.size(); j++)
+    {
+        // 与i相临且未被访问的节点
+        if (g.adj_matrix[i][j] == 1 && g.visited[j])
+        {
+            _DSF(g, j);
+        }
+    }
+}
+
+
+
+void BFS(Graph g)
+{
+    int num_ves = g.vexs.size();
+
+    // 初始化图
+    for (int i = 0; i < num_ves; i++)
+    {
+        g.visited[i] = false;
+    }
+
+    queue<int> q;
+    // 若是连通图，只会进行一次
+    for (int i = 0; i < num_ves; i++)
+    {
+        q.push(i);
+        while (!q.empty())
+        {
+            i = q.front();
+            q.pop();
+            visit(g.vexs[i]);       // 出队列的时候访问
+            g.visited[i] = false;
+
+            for (int j = 0; j < num_ves; j++)
+            {
+                // 与i相邻且未被访问的节点
+                if (g.adj_matrix[i][j] == 1 && g.visited[j] == false)
+                {
+                    q.push(j);
+                }
+            }
+        }
+    }
+
+}
+
 
 
