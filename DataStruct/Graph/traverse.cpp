@@ -178,15 +178,15 @@ void BFS(Graph g)
         q.push(i);
         while (!q.empty())
         {
-            i = q.front();
+            int k = q.front();
             q.pop();
-            visit(g.vexs[i]);       // 出队列的时候访问
-            g.visited[i] = false;
+            visit(g.vexs[k]);       // 出队列的时候访问
+            g.visited[k] = false;
 
             for (int j = 0; j < num_ves; j++)
             {
                 // 与i相邻且未被访问的节点
-                if (g.adj_matrix[i][j] == 1 && g.visited[j] == false)
+                if (g.adj_matrix[k][j] == 1 && g.visited[j] == false)
                 {
                     q.push(j);
                 }
