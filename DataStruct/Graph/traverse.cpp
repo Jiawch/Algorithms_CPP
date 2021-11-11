@@ -69,7 +69,7 @@ void BFSTraverse (MGraph G) {
             visit(G.vexs[i]);       // 入队列即开始访问，也可出队列后访问
             q.push(i);
             while (!q.empty()) {    // 若当前队列不为空
-                i = q.top();
+                i = q.front();
                 q.pop();
                 for (int j = 0; j < G.numVertexes; j++) {
                     if (G.arc[i][j] == 1 && !visited[j]) {  // 与i相连且未被访问的节点
