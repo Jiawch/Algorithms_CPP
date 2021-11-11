@@ -121,6 +121,11 @@ ListNode* merge(ListNode *head1, ListNode *head2) {
     return head;
 }
 
+/*
+ * getMid这里需要注意的是：
+ * 如果有头节点（注意不是首节点），则奇数个取中间，偶数个去中间靠左；
+ * 如果没有头节点，则奇个取中间，偶数个取中间靠右。
+ */
 ListNode* getMid(ListNode *head){
     ListNode *dummp = new ListNode(0, head);
     ListNode *p_fast = dummp;
