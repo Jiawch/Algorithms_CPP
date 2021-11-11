@@ -56,6 +56,7 @@
 ### 6 图的两种遍历
 1. [DFS](./traverse.cpp)
 2. [BFS](./traverse.cpp)
+3. [DFS/BFS](./traverse.cpp#L116) v2(推荐)
 
 ### 7 复杂度分析
 - 时间复杂度
