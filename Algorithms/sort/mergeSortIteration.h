@@ -116,3 +116,63 @@ void merge(vector<int> &a, vector<int> &b, int low, int mid, int high){
     for (int i = low; i <= high; i++)
         a[i] = b[i];
 }
+
+
+
+/*! Author: Jiawch
+ *! Date: 2021-10-08
+ *  迭代实现的归并排序v2
+ *  注意135行`int i = 0`初始化要在for循环外部，因为142行又用到了i
+ *  137行注意for循环的最后一个参数是表达式，要写成`i+=2*sebLength`而非`i+2*subLength`
+ */
+
+void mergeSortNonRecursion(vector<int> &a)
+{
+    int n = a.size();
+    vector<int> b(n);
+    int subLength = 1;      // subLength为归并片大大小，每一个subLength里有序
+    while (subLength < n)
+    {
+        int i = 0;
+        for (; i + 2 * subLength <= n; i += 2 * subLength)
+        {
+            merge(a, b, i, i + subLength - 1, i + 2 * subLength - 1);
+        }
+
+        // 不足正常合并的数据
+        if (i + subLength < n)  // 剩有两段的数据，只剩下一段的数据不用处理
+        {
+            merge(a, b, i, i + subLength - 1, n - 1);
+        }
+
+        subLength *= 2;
+    }
+}
+
+void merge(vector<int> &a, vector<int> &b, int low, int mid, int high)
+{
+    int i = low,        // i指向a左边数组的第一个元素
+        j = mid + 1,    // j指向a右边数组的第一个元素
+        k = low;        // k为b中的指针
+
+    while (i <= mid && j <= high)
+    {
+        if (a[i] <= a[j])   b[k++] = a[i++];
+        else                b[k++] = a[j++];
+    }
+
+    while (i <= mid)
+    {
+        b[k++] = a[i++];
+    }
+    while (j <= high)
+    {
+        b[k++] = a[j++];
+    }
+
+    // 将b[low ... high] 拷贝回 a[low ... high]
+    for (int i = low, i <= high; i++)
+    {
+        a[i] = b[i];
+    }
+}
