@@ -139,7 +139,7 @@ void mergeSortNonRecursion(vector<int> &a)
             merge(a, b, i, i + subLength - 1, i + 2 * subLength - 1);
         }
 
-        // 不足正常合并的数据
+        // 还剩数据
         if (i + subLength < n)  // 剩有两段的数据，只剩下一段的数据不用处理
         {
             merge(a, b, i, i + subLength - 1, n - 1);
