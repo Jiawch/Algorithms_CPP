@@ -46,6 +46,7 @@ void QuickSort3Way<T>::sort(vector<T> &a, int low, int high){
 /*! Author: Jiawch
  *! Date: 2021-10-11
  * 三向切分快速排序
+ * 维护三个指针（lt，mid，gt），当mid>gt时，循环结束
  * ref: https://www.jianshu.com/p/d70aeccaee19
  */
 
