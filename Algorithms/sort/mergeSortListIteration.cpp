@@ -39,13 +39,13 @@ ListNode* mergeSort(ListNode* head)
             tail1->next = nullptr;      // head1尾节点从链表断开
             ListNode *tail2 = getTail(head2, subLength);
 
-            if (tail2 != nullptr)       // 还可再分
+            if (tail2 != nullptr)       // 还剩数据
             {
                 // next = tail2->next;
                 p = tail2->next;
                 tail2->next = nullptr;  // head2尾节点从链表断开
             }
-            else
+            else                        // 不剩数据
             {
                 p = nullptr;
             }
