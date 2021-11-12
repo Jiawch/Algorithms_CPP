@@ -79,6 +79,7 @@ int QuickSortByStack<T>::partition(vector<T>& a, int low, int high){
 /*! Author: Jiawch
  *! Date: 2021-10-11
  * 快速排序的非递归版本
+ * 一句话：申请一个stack来保持low和high，然后重复执行partition
  * 使用栈来实现，而不是递归。
  * 1. 申请一个栈，存放排序数组的起始位置和终点位置。
  * 2. 将整个数组的起始位置low和终点位置high进栈
@@ -89,18 +90,20 @@ int QuickSortByStack<T>::partition(vector<T>& a, int low, int high){
  */
 
 void quickSortbyStack(vector<int> &a) {
+    int n = a.size();
     int low = 0;
-    int high = a.size() - 1;
+    int high = n - 1;
     _quickSortbyStack(a, low, high);
 }
 
 void _quickSortbyStack(vector<int> &a, int low, int high) {
     if (low >= high) return;
+    
     stack<int> s;
     s.push(low);
     s.push(high);
 
-    while(!s.empty()) {
+    while (!s.empty()) {
         high = s.top();
         s.pop();
         low = s.top();
@@ -112,7 +115,6 @@ void _quickSortbyStack(vector<int> &a, int low, int high) {
             s.push(low);
             s.push(mid - 1);
         }
-
         if (high > mid + 1) {
             s.push(mid + 1);
             s.push(high);
@@ -122,6 +124,7 @@ void _quickSortbyStack(vector<int> &a, int low, int high) {
 
 int partition(vector<int> &a, int low, int high) {
     int key = a[low];
+    
     while (low < high) {
         while (low < high && a[high] >= key)    high--;     // 注意是key <= a[high]，而不是key < a[high]，否则陷入死循环
         a[low] = a[high];                                   // 因为左和右分别是`不大于`与`不小于`key的数
