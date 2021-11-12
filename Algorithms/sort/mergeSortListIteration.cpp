@@ -79,7 +79,7 @@ ListNode* getTail(ListNode* head, int subLength)
 }
 
 // 合并两个有序链表
-// 99行，容易忘
+// 99行`p = p->next`，容易忘
 ListNode* merge(ListNode* head1, ListNode* head2)
 {
     if (head1 == nullptr) return head2;
