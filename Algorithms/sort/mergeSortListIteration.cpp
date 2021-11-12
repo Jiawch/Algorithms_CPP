@@ -41,7 +41,6 @@ ListNode* mergeSort(ListNode* head)
 
             if (tail2 != nullptr)       // 还剩数据
             {
-                // next = tail2->next;
                 p = tail2->next;
                 tail2->next = nullptr;  // head2尾节点从链表断开
             }
