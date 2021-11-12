@@ -95,6 +95,7 @@ struct ListNode {
     ListNode(int val, ListNode *next): val(val), next(next) {}
 };
 
+// 空间复杂度为O(logn)
 ListNode* mergeSort(ListNode *head) {
     if (head == nullptr || head->next == nullptr) return head;
     ListNode *mid = getMid(head);
@@ -106,7 +107,7 @@ ListNode* mergeSort(ListNode *head) {
     return merge(head, head2);
 }
 
-// 递归版 merge
+// 递归版 merge，空间复杂度为O(logn)
 ListNode* merge(ListNode *head1, ListNode *head2) {
     if (head1 == nullptr) return head2;
     if (head2 == nullptr) return head1;
@@ -122,7 +123,7 @@ ListNode* merge(ListNode *head1, ListNode *head2) {
     return head;
 }
 
-// 迭代版 merge
+// 迭代版 merge，空间复杂度为O(1)
 ListNode* merge(ListNode* head1, ListNode* head2)
 {
     if (head1 == nullptr) return head2;
@@ -142,8 +143,8 @@ ListNode* merge(ListNode* head1, ListNode* head2)
         p = p->next;
     }
 
+    // 此时p指向非空的尾节点
     if (head1 != nullptr) p->next = head1;
-
     if (head2 != nullptr) p->next = head2;
 
     return dummy->next;
