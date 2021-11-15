@@ -124,7 +124,7 @@ int searchFirst(vector<int> a, int target)
     int low = 0,
         high = n - 1;
 
-    while (low < high)
+    while (low < high)		// 注意这里与传统的二分查找不一样，不用取等号
     {
         int mid = (low + high) / 2;
         if (a[mid] < target)
@@ -161,7 +161,7 @@ int searchLast(vector<int> a, int target)
     int low = 0,
         high = n - 1;
 
-    while (low < high)
+    while (low < high)		// 注意这里与传统的二分查找不一样，不用取等号
     {
         int mid = (low + high + 1) / 2;
         if (a[mid] < target)
