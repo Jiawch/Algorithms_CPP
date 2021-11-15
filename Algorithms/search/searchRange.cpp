@@ -163,7 +163,7 @@ int searchLast(vector<int> a, int target)
 
     while (low < high)		// 注意这里与传统的二分查找不一样，不用取等号
     {
-        int mid = (low + high + 1) / 2;
+        int mid = (low + high + 1) / 2;	// 如果还是 mid = (low + high) / 2 的话，那么`两个一样的数`会在 low = mid 的作用下无限循环
         if (a[mid] < target)
         {
             low = mid + 1;
