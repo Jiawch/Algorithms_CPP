@@ -62,3 +62,58 @@ int main() {
     return 0;
 }
 
+
+
+/*! Author: Jiawch
+ *! Date: 2021-11-15
+ * 从数组(未排序)中查找第k小的元素，数组元素可能有重复，也可能没有。
+ * 借用三向切分快速排序的思想，需要考虑
+ * 1. 如何在递归中把中间值返回出来
+ * 2. k是否需要变化
+ */
+
+int searchKthSmall(vector<int> a, int k)
+{
+    int n = a.size();
+    int low = 0,
+        high = n - 1;
+
+    int kthSmall = _quickSort3Way(a, low, high, k);
+
+    return kthSmall;
+}
+
+// 从数组a[low: high]中查找第k个元素，k下标从0开始；所有下标都从0开始
+int _quickSort3Way(vector<int> &a, int low, int high, int k)
+{
+    if (low >= high)
+    {
+        return a[low];
+    }
+
+    int lt = low,
+        mid = low + 1,
+        gt = high;
+
+    int key = a[low];
+    while (mid <= gt)
+    {
+        if (a[mid] < key) swap(a[mid++], a[lt++]);
+        else if (a[mid] > key) swap(a[mid], a[high--]);
+        else mid++;
+    }
+
+    if (k < lt)
+    {
+        return _quickSort3Way(a, low, lt - 1, k);
+    }
+    else if (k > gt)
+    {
+        return _quickSort3Way(a, gt + 1, high, k);
+    }
+    else
+    {
+        return a[k];
+    }
+}
+
