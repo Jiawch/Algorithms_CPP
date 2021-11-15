@@ -33,6 +33,7 @@
    - 大于等于target的最小值
    - 小于等于target的最大值
  - [插入](./insert.cpp)
+ - [删除](./delete.cpp)
 
 ### 2 平衡搜索树
 #### 2.1 AVL树
