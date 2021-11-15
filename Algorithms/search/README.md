@@ -21,5 +21,5 @@
    - [从有重复元素有序数组中找到第一个等于val的元素的下标](searchRange.cpp#L19)
    - [从有重复元素有序数组中找到最后一个等于val的元素的下标](searchRange.cpp#L42)
  - 根据值找到第k个元素的值<br />
-   - [从未排序的数组中查找第k小的元素](kthSmallestOfArray.cpp)：数组元素可能有重复，也可能没有。
+   - [从未排序的数组中查找第k小的元素](kthSmallestOfArray.cpp)：数组元素可能有重复，也可能没有。递归中把中间值返回出来的例子
    - [排序矩阵中从小到大第k个元素](kthSmallestOfMatrix.cpp)
