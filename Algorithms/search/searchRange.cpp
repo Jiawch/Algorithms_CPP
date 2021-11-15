@@ -105,3 +105,82 @@ int searchLast(vector<int> a, int x) {
     if (a[low] == x) return low;
     return -1;
 }
+
+
+/*! Author: Jiawch
+ *! Date: 2021-11-15
+ *  二分查找v2
+ */
+
+// 从有重复元素有序数组中找到第一个等于val的元素的下标
+int searchFirst(vector<int> a, int target)
+{
+    if (a.size() == 0 || target < a[0] || target > a.back())
+    {
+        return -1;
+    }
+
+    int n = a.size();
+    int low = 0,
+        high = n - 1;
+
+    while (low < high)
+    {
+        int mid = (low + high) / 2;
+        if (a[mid] < target)
+        {
+            low = mid + 1;
+        }
+        else if (a[mid] > target)
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            high = mid;
+        }
+    }
+
+    if (a[low] == target)
+    {
+        return low;
+    }
+    return -1;
+}
+
+
+// 从有重复元素有序数组中找到最后一个等于val的元素的下标
+int searchLast(vector<int> a, int target)
+{
+    if (a.size() == 0 || target < a[0] || target > a.back())
+    {
+        return -1;
+    }
+    
+    int n = a.size();
+    int low = 0,
+        high = n - 1;
+
+    while (low < high)
+    {
+        int mid = (low + high + 1) / 2;
+        if (a[mid] < target)
+        {
+            low = mid + 1;
+        }
+        else if (a[mid] > target)
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid;
+        }
+    }
+
+    if (a[low] == target)
+    {
+        return low;
+    }
+    return -1;
+}
