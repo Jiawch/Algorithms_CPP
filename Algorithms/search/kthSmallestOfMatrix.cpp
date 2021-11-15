@@ -97,39 +97,61 @@ int main(){
 using namespace std;
 
 
-// 查找排序矩阵中，小于等于mid的元素的个数
-int _getLessEqual(vector<vector<int>> matrix, int mid) {
+
+
+// 排序矩阵中第k小的数，k从1开始
+int kthSmallest(vector<vector<int> > matrix, int k)
+{
     int m = matrix.size();
     int n = matrix[0].size();
-    int count = 0;
-    for (int j = 0; j <= n-1; j++) {
-        for (int i = 0; i <= m-1; i++) {
-            if (matrix[i][j] <= mid)
-                count += 1;
-            else
-                break;
-        }
-    }
-    return count;
-}
+    assert(m*n >= k);
 
-// 从排序矩阵中查找从小到大的第k个数（k从1开始），返回其值
-int _kthSmallest(vector<vector<int>> matrix, int k) {
-    int m = matrix.size(),
-        n = matrix[0].size();
-
-    int low = matrix[0][0],
-        high = matrix[m-1][n-1];
-
-    while (low < high) {
+    int low = matrix[0][0];         // low左边的所有元素的索引都比k小
+    int high = matrix[m-1][n-1];    // high右边的所有元素索引都比kda
+    while (low < high)
+    {
         int mid = low + (high - low) / 2;
-        int count = _getLessEqual(matrix, mid);
-        if (count < k) low = mid + 1;
-        else if (count > k) high = mid - 1;
-        else high = mid;
+        int count = getLessEqual(matrix, mid);
+        if (count < k)
+        {
+            low = mid + 1;
+        }
+        else if (count > k)
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            high = mid;
+        }
     }
 
     return low;
+}
+
+// 查找排序矩阵中，小于等于mid的元素的个数
+int getLessEqual(vector<vector<int> > matrix, int mid)
+{
+    int m = matrix.size();
+    int n = matrix[0].size();
+
+    int i = m - 1,
+        j = 0;
+    int count = 0;
+    while (i >= 0 && j <= n-1)
+    {
+        if (matrix[i][j] < mid)
+        {
+            count += i + 1;
+            j++;
+        }
+        else
+        {
+            i--;
+        }
+    }
+
+    return count;
 }
 
 void testSearch(){
