@@ -77,6 +77,7 @@ void MergeSortIteration<T>::merge(vector<T> &a, vector<T> &b, int low, int mid, 
 /*! Author: Jiawch
  *! Date: 2021-10-08
  *  迭代实现的归并排序
+ *  highlight：使 subLength 内有序
  */
 
 
@@ -122,8 +123,9 @@ void merge(vector<int> &a, vector<int> &b, int low, int mid, int high){
 /*! Author: Jiawch
  *! Date: 2021-10-08
  *  迭代实现的归并排序v2
- *  注意135行`int i = 0`初始化要在for循环外部，因为142行又用到了i
- *  137行注意for循环的最后一个参数是表达式，要写成`i+=2*sebLength`而非`i+2*subLength`
+ *  highlight：使 subLength 内有序
+ *  注意138行`int i = 0`初始化要在for循环外部，因为145行又用到了i
+ *  139行注意for循环的最后一个参数是表达式，要写成`i+=2*sebLength`而非`i+2*subLength`
  */
 
 void mergeSortNonRecursion(vector<int> &a)
