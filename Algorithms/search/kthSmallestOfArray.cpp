@@ -103,15 +103,15 @@ int _quickSort3Way(vector<int> &a, int low, int high, int k)
         else mid++;
     }
 
-    if (k < lt)
+    if (k < lt)         // k落在lt（不包含）左边，继续在左边查找
     {
         return _quickSort3Way(a, low, lt - 1, k);
     }
-    else if (k > gt)
+    else if (k > gt)    // k落在gt（不包含）右边，继续在右边查找
     {
         return _quickSort3Way(a, gt + 1, high, k);
     }
-    else
+    else                // k恰落在[lt,gt]之间，直接返回key值a[k]
     {
         return a[k];
     }
