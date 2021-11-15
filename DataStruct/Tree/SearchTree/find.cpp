@@ -97,7 +97,7 @@ TreeNode* fineGENoRecursion (TreeNode* t, int target) {
              *pre = nullptr;
     while (p) {
         if (p->val > target) {
-            pre = p;
+            pre = p;        //  候选
             p = p->left;
         } else if (p->val < target)
             p = p->right;
@@ -143,7 +143,7 @@ TreeNode* findLENoRecursion (TreeNode* t, int target) {
         if (p->val > target)
             p = p->left;
         else if (p->val < target) {
-            pre = p;
+            pre = p;        // 候选
             p = p->right;
         }
         else
