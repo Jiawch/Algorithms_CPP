@@ -183,3 +183,106 @@ ListNode* getEnd(ListNode* head) {
     }
     return head;
 }
+
+
+
+/*! Author: Jiawch
+ *! Date: 2021-11-15
+ *! 链表的快速排序v2
+ *  思路：
+ *    对一个链表，以第一个结点head作为key，然后遍历链表：
+ *    <=key的作为一个链表L1，>key的作为一个链表L2
+ *    递归的将两个链表L1 L2排序，然后L1->head->L2
+ *  时间复杂度：O(nlogn)
+ *  空间复杂度：O(1)
+ */
+
+struct ListNode {
+    int value;
+    ListNode *next;
+    ListNode(): value(0), next(nullptr) {}
+    ListNode(int value): value(value), next(nullptr) {}
+    ListNode(int value, ListNode *next): value(value), next(next) {}
+};
+
+ListNode* quickSort(ListNode* head)
+{
+    ListNode *tail = getTail(head);
+    head = _quickSort(head, tail);
+    return head;
+}
+
+ListNode* _qucikSort(ListNode* &head, ListNode* &tail)
+{
+    if (head == nullptr || head->next == nullptr)
+    {
+        return head;
+    }
+
+    ListNode *p = head->next;
+    head->next = nullptr;
+
+    ListNode *dummyHead1 = new ListNode(0),
+             *tail1 = dummyHead1;
+    ListNode *dummyHead2 = new ListNode(0),
+             *tail2 = dummyHead2;
+
+    while (p != nullptr)
+    {
+        if (p->value <= head->value)
+        {
+            tail1->next = p;
+            tail1 = tail1->next;
+        }
+        else
+        {
+            tail2->next = p;
+            tail2 = tail2->next;
+        }
+        p = p->next;
+    }
+
+    tail1->next = nullptr;
+    tail2->next = nullptr;
+
+    dummyHead1->next = _quickSort(dummyHead1->next, tail1);
+    dummyHead2->next = _quickSort(dummyHead2->next, tail2);
+
+    if (dummyHead1->next != nullptr && dummyHead2->next != nullptr)
+    {
+        tail1->next = head;
+        head->next = dummyHead2->next;
+        head = dummyHead1->next;
+        tail = tail2;
+    }
+    else if (dummyHead1->next != nullptr)
+    {
+        tail1->next = head;
+        head = dummyHead1->next;
+        tail = tail->next;
+    }
+    else
+    {
+        head->next = dummyHead2->next;
+        tail = tail2;
+    }
+
+    return head;
+}
+
+ListNode* getTail(ListNode* head)
+{
+    if (head == nullptr || head->next == nullptr)
+    {
+        return head;
+    }
+
+    if (head->next != nullptr)
+    {
+        head = head->next;
+    }
+
+    return head;
+}
+
+
