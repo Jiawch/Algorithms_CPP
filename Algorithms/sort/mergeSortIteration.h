@@ -134,7 +134,7 @@ void mergeSortNonRecursion(vector<int> &a)
     while (subLength < n)
     {
         int i = 0;
-        for (; i + 2 * subLength <= n; i += 2 * subLength)
+        for (; i + 2 * subLength <= n; i += 2 * subLength)      // `i + 2 * subLength <= n`等号成立，因为后面会`-1`
         {
             merge(a, b, i, i + subLength - 1, i + 2 * subLength - 1);
         }
