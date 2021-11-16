@@ -152,7 +152,7 @@ void _DFS(Graph &g, int i)
     for (int j = 0; j < g.vexs.size(); j++)
     {
         // 与i相临且未被访问的节点
-        if (g.adj_matrix[i][j] == 1 && g.visited[j])
+        if (g.adj_matrix[i][j] == 1 && g.visited[j] == false)
         {
             _DSF(g, j);
         }
