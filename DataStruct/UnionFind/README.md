@@ -68,48 +68,64 @@ struct unionFindNode {
 
 ### 3 实现
 ```
-#include <iostream>
-
-using namespace std;
-
 #define MAX 100
 
 int father[MAX];    // father[x]表示x的父节点
 int rank[MAX];      // rank[x]表示以x为根节点的树的高度（从1开始）
 
-
 /* 初始化集合，n表示节点个数，从1开始 */
-void init(int n) {
-    for (int i = 1; i <= n; i++) {
+void intiFindUnion(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
         father[i] = i;
         rank[i] = 1;
     }
 }
 
-
-int find(int x) {
-    if (x == father[x])
-        return x;
-    else {
-        father[x] = find(father[x]);    // 把沿途的每个节点的父节点都设为根节点
-        return father[x];               // 返回父节点
+int find(int i)
+{
+    if (father[i] == i)
+    {
+        return i;
+    }
+    else
+    {
+        father[i] = find(father[i]);    // 把沿途的每个节点的父节点都设为根节点
+        return father[i];               // 返回父节点
     }
 }
 
-void union(int x, int y) {
+void union(int i, int j)
+{
     //先找到两个根节点
-    x = find(x);
-    y = find(y);
-    if (x == y) return;         // 如果根节点相同同，直接返回
-    if (rank[x] > rank[y]) {    // 高度小的作为高度大的子树
-        father[y] = x;
-    } else if (rank[x] < rank[y]) {
-        father[x] = y;
-    } else {                    // 如果深度相同，则新的根节点的深度+1
-        father[y] = x;
-        rank[x]++;
+    i = find(i);
+    j = find(j);
+
+    // 如果根节点相同同，直接返回
+    if (i == j)
+    {
+        return;
+    }
+
+    // 高度小的作为高度大的子树
+    if (rank[i] < rank[j])
+    {
+        father[i] = j;
+    }
+    else if (rank[i] > rank[j])
+    {
+        father[j] = i;
+    }
+    // 如果深度相同，则新的根节点的深度+1
+    else
+    {
+        father[i] = j;
+        rank[j]++;
     }
 }
+
+
 ```
 
 > *Reference*  
