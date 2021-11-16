@@ -117,85 +117,109 @@ bool Trie::startsWith(string prefix) {
 
 
 /*! Author: Jiawch
- *! Date: 2021-11-01
+ *! Date: 2021-11-16
  * Trie树：插入、查找
  */
 
 
+#include <iostream>
+#include <unordered_map>
+#include <string>
+
+using namespace std;
+
+// 字典树
 struct TrieNode {
     char value;     // 键值
-    bool is_end;    // 以该节点结尾，是否构成一个单词标志
-    unordered_map<char, TrieNode*> child;  // 保存指向孩子节点的指针，用map而非vector是因为`map的find函数比较方便`
+    bool isEnd;     // 构成单词标志
+    unordered_map<char, TrieNode*> child;   // 保存指向孩子节点的指针，用map而非vector是因为`map的find函数比较方便`
 
-    TrieNode (char value) {
-        value = value;
-        is_end = false;
-    }
+    TrieNode(char value): value(value), isEnd(false) {}
 };
 
-void insert (TrieNode* root, string word) {
-    TreeNode *p = root;
-    int i = 0;
-    int len = word.size()
-    while (i < len) {
-        // 字符已在树中 
-        if (p->child.find(word[i]) != p->child.end()) {           
-            if (i == len-1) (p->child[word[i]])->is_end = true; // 构成单词标志
+// 插入
+TrieNode* insert(TrieNode* root, string word)
+{
+    if (root == nullptr)
+    {
+        root = new TrieNode('/');
+    }
+
+    TrieNode *p = root;     // 指向当前节点
+    int n = word.size();
+
+    // 遍历word
+    for (int i = 0; i < n; i++)
+    {
+        // 如果字符已经在树中，顺着孩子节点往下查找
+        if (p->child.find(word[i]) != p->child.end())
+        {
             p = p->child[word[i]];
-            i++;
         }
-        // 如果字符不在树中，创建新的结点
-        else {                                                    
-            TrieNode *q = new TrieNode(word[i]);
-            if (i == len-1) q->is_end = true;                   // 构成单词标志
-            p->child[word[i]] = q;
-            p = q;
+        // 如果字符不在树中，创建新节点
+        else
+        {
+            p->child[word[i]] = new TrieNode(word[i]);
+            p = p->child[word[i]];
         }
+
+    }
+
+    // 最后一个字符的节点isEnd置true。p与i的关系是：p代表的节点在i代表的节点的上一级
+    p->isEnd = true;
+
+    return root;
+}
+
+// 查找
+bool search(TrieNode* root, string word)
+{
+    TrieNode *p = root;
+    int n = word.size();
+
+    for (int i = 0; i < n; i++)
+    {
+        // 如果字符已经在树中，顺着孩子节点往下查找
+        if (p->child.find(word[i]) != p->child.end())
+        {
+            p = p->child[word[i]];
+        }
+        // 如果字符不在树中，返回false
+        else
+        {
+            return false;
+        }
+    }
+
+    // 构成单词
+    if (p->isEnd == true)
+    {
+        return true;
+    }
+    // 不构成单词
+    else
+    {
+        return false;
     }
 }
 
-
-bool search (TrieNode* root, string word) {
+// 以开头
+bool startWith(TrieNode* root, string word)
+{
     TrieNode *p = root;
-    int i = 0;
-    int len = word.size();
-    while (i < len) {
-        // 当前词在树中没有匹配
-        if (p->child.find(word[i]) == p->child.end()) {
-            return false;
-        }
-        // 当前词在树中匹配
-        else {
+    int n = word.size();
+
+    for (int i = 0; i < n; i++)
+    {
+        if (p->child.find(word[i]) != p->child.end())
+        {
             p = p->child[word[i]];
-            if (i == len-1) {       // 最后一个节点包含构成单词标志
-                if (p->is_end == true)
-                    return true;
-                else
-                    return false;
-            }
         }
-        i++;
-    }
-
-    return false;
-}
-
-
-bool startWith (TrieNode* root, string prefix) {
-    TrieNode *p = root;
-    int i = 0;
-    int len = prefix.size();
-    while (i < len) {
-        // 当前词在树中没有匹配
-        if (p->child.find(prefix[i]) == p->child.end()) {
+        else
+        {
             return false;
         }
-        // 当前词在树中匹配
-        else {
-            p = p->child[prefix[i]];
-        }
-        i++;
     }
-    // 如果前缀中所以单词都在树中，返回true
-    return true;
+
+    return true;    
 }
