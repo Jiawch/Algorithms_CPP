@@ -149,7 +149,8 @@ void _DFS(Graph &g, int i)
     visit(g.vexs[i]);
     g.visited[i] = true;
 
-    for (int j = 0; j < g.vexs.size(); j++)
+    int num_vexs = g.vexs.size();
+    for (int j = 0; j < num_vexs; j++)
     {
         // 与i相临且未被访问的节点
         if (g.adj_matrix[i][j] == 1 && g.visited[j] == false)
