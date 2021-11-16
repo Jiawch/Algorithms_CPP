@@ -25,6 +25,11 @@
  - [时间复杂度](./Complexity/README.md)
  - [空间复杂度](./Complexity/README.md)
 
+### 其他
+ - [位操作]()
+ - [内存（堆和栈）]()
+ - [设计模式]()
+
 ### 命名规范
 ```
  以 algorithm cpp 为例
