@@ -126,16 +126,16 @@ struct Graph {
 
 void DFS(Graph g)
 {
-    int num_ves = g.vexs.size();
+    int num_vexs = g.vexs.size();
 
     // 初始化图
-    for (int i = 0; i < num_ves; i++)
+    for (int i = 0; i < num_vexs; i++)
     {
         g.visited[i] = false;
     }
 
     // 若是连通图，只会执行一次
-    for (int i = 0; i < num_ves; i++)
+    for (int i = 0; i < num_vexs; i++)
     {
         if (g.visited[i] == false)
         {
