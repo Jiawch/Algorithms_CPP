@@ -125,7 +125,7 @@ bool Trie::startsWith(string prefix) {
 struct TrieNode {
     char value;     // 键值
     bool is_end;    // 以该节点结尾，是否构成一个单词标志
-    unordered_map<char, *TrieNode > child;  // 保存指向孩子节点的指针，用map而非vector是因为`map的find函数比较方便`
+    unordered_map<char, TrieNode*> child;  // 保存指向孩子节点的指针，用map而非vector是因为`map的find函数比较方便`
 
     TrieNode (char value) {
         value = value;
