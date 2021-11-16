@@ -1,4 +1,6 @@
 ## 哈希表
+C++ STL中，哈希表对应的容器是 unordered_map（since C++ 11）。根据 C++ 11 标准的推荐，用 unordered_map 代替 hash_map。
+
 ```
 存储地址 = 哈希函数f(关键字key)
 ```
