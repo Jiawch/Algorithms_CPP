@@ -164,37 +164,41 @@ void _DFS(Graph &g, int i)
 
 void BFS(Graph g)
 {
-    int num_ves = g.vexs.size();
+    queue<int> q;
 
     // 初始化图
-    for (int i = 0; i < num_ves; i++)
+    int num_vexs = g.vexs.size();
+    for (int i = 0; i < num_vexs; i++)
     {
         g.visited[i] = false;
     }
 
-    queue<int> q;
     // 若是连通图，只会进行一次
-    for (int i = 0; i < num_ves; i++)
+    for (int i = 0; i < num_vexs; i++)
     {
-        q.push(i);
-        while (!q.empty())
+        if (g.visited[i] == false)
         {
-            int k = q.front();
-            q.pop();
-            visit(g.vexs[k]);       // 出队列的时候访问
-            g.visited[k] = false;
-
-            for (int j = 0; j < num_ves; j++)
+            q.push(i);
+            while (!q.empty())
             {
-                // 与i相邻且未被访问的节点
-                if (g.adj_matrix[k][j] == 1 && g.visited[j] == false)
+                int j = q.front();
+                q.pop();
+
+                // 出队列的时候访问
+                visit(g.vexs[j]);
+                g.visited[j] = true;
+
+                for (int k = 0; k < num_vexs; k++)
                 {
-                    q.push(j);
+                    // 与i相邻且未被访问的节点
+                    if (g.adj_matrix[j][k] == 1 && g.visited[k] == false)
+                    {
+                        q.push(k);
+                    }
                 }
             }
         }
     }
-
 }
 
 
