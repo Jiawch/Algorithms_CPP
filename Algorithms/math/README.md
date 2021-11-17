@@ -5,3 +5,7 @@
    - C(n,m) = A(n,m) / m! = n! / (m!(n-m)!)
    - C(n,m) = C(n-1,m-1) + C(n-1,m)
  - [不同进制的转化](./binaryConversion.cpp)
+ - ASCII
+   - 'a' = 97
+   - 'A' = 65
+   - '0' = 48
