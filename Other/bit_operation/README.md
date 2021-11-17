@@ -7,3 +7,4 @@
 位运算（& > ^ > |）  
 逻辑运算（&& > ||）
 
+![](./operator_precedence.png)
