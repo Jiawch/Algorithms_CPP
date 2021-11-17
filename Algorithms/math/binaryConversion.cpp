@@ -61,6 +61,7 @@ BinaryConversion::BinaryConversion(){
 
 /*
  * 将其他进制(2~16)，转化为10进制
+ * 遍历，移位相加
  * Parament:
  *     num: string, 其他进制数
  *     binary: int, 进制
@@ -70,13 +71,14 @@ BinaryConversion::BinaryConversion(){
 int BinaryConversion::anyBinaryToDecimal(string num, int binary){
     int decimal = 0;
     for (int i = 0; i < num.size(); i++){
-        decimal = decimal * binary + charToNum[num[i]];
+        decimal = decimal * binary + charToNum[num[i]];     // （左）移位操作（*binary），新加入的数放到最低位
     }
     return decimal;
 }
 
 /*
  * 将10进制转化为其他进制(2~16)
+ * 倒除法，直到商为0为止
  * Parament:
  *     decimal: int, 十进制数
  *     binary: int, 进制
