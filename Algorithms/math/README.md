@@ -7,10 +7,4 @@
  - [不同进制的转化](./binaryConversion.cpp)
    - 十进制转任意进制：倒除法，直到商为0停止
    - 任意进制转十进制：遍历，移位相加
- - ASCII
-   - 'a' = 97
-   - 'A' = 65
-   - '0' = 48
-- int，string 相互转换
-   - int2string: to_string();
-   - string2ing: stoi();
+
