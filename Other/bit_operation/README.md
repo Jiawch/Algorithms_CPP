@@ -56,8 +56,8 @@ while (a != 0)
 
 5. 取最值
 ```
-const int MAX = ~(1 << (sizeof(int)-1));
-const int MIN = -MAX - 1;
+const int MAX = ~(1 << (sizeof(int)-1));   # 0111 1111 1111 1111, 1111 1111 1111 1111 
+const int MIN = -MAX - 1;                  # 1000 0000 0000 0000, 0000 0000 0000 0000
 ```
 
 ### 位运算实现加减乘除
