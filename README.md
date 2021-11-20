@@ -26,7 +26,7 @@
  - [空间复杂度](./Complexity/README.md)
 
 ### 其他
- - [位操作](./Other/c++_grammar/README.md)
+ - [位操作](./Other/bit_operation/README.md)
  - [内存（堆和栈）]()
  - [设计模式]()
 
