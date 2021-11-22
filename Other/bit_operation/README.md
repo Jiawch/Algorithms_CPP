@@ -75,10 +75,12 @@ a &= (a - 1);    // ---> 0b1000，消去最后一位1
 
 ### 位运算实现加减乘除
 
-- [加法](./bit_operation.cpp)
+- [加法](./bit_operation.cpp) —— 非进位和+进位，进位为0停止
     - ![](https://pic.leetcode-cn.com/56d56524d8d2b1318f78e209fffe0e266f97631178f6bfd627db85fcd2503205-Picture1.png)
 
-- [减法](./bit_operation.cpp)
-- [乘法](./bit_operation.cpp)
+- [减法](./bit_operation.cpp) —— 取反加一
+- [乘法](./bit_operation.cpp) —— 模拟十进制乘法
     - ![](https://upload-images.jianshu.io/upload_images/1925324-76fc13867d15d580.png?imageMogr2/auto-orient/strip|imageView2/2/w/448)
-- [除法](./bit_operation.cpp)
+- [除法](./bit_operation.cpp) —— 模拟多次减法，但需优化
+
+### 位转换 
