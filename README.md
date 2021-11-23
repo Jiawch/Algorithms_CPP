@@ -9,6 +9,7 @@
  - [树](./DataStruct/Tree)
  - [图](./DataStruct/Graph)
  - [哈希表](./DataStruct/Hash)
+ - [字符类型](./DataStruct/String)
 
 ### 算法
  - [数学](./Algorithms/math)
