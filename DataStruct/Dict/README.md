@@ -62,3 +62,10 @@
 [unordered_map](http://www.cplusplus.com/reference/unordered_map/unordered_map/?kw=unordered_map)：无序字典。基于哈希实现。  
 
 
+### 6 遍历
+```
+for (auto item : a) {
+    item.first;
+    item.second;
+}
+```
