@@ -25,5 +25,7 @@ if (s1 < s2) {}
 // 排序（不返回）
 sort(s1.begin(), s1.end(), cmp);
 
+// 反转（不返回）
+reverse(s1.begin(), s1.end());
 
 ```
