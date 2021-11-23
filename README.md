@@ -40,7 +40,7 @@
  - 函数名：algorithmCpp
  - 结构体：AlgorithmCpp
  - 变量名：algorithmCpp
- - 结构体变量名：algorithmCpp_
+ - 结构体变量名：algorithmCpp
  - 隐函数/隐变量：_AlgorithmCpp/_algorithmAcpp
  
  花括弧占一行
