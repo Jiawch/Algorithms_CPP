@@ -30,6 +30,8 @@
  - [位操作](./Other/bit_operation/README.md)
  - [内存（堆和栈）]()
  - [设计模式]()
+ - [c++语法](./Other/c++_grammar/README.md)
+ - [数学](./Other/math/README.md)
 
 ### 命名规范
 ```
