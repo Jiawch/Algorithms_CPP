@@ -32,6 +32,7 @@
  - [设计模式]()
  - [c++语法](./Other/c++_grammar/README.md)
  - [数学](./Other/math/README.md)
+ - [经典问题](./Other/classical_problem/README.md)
 
 ### 命名规范
 ```
