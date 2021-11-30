@@ -13,6 +13,12 @@
  find: 返回的是被查找元素的位置，没有则返回map.end()
  ```
  
+ #### vector 的 resize
+ ```
+ vector<vector<int>> matrix;
+ matrix.resize(m, vector<int>(n)); // 分配一个m*n的初始空间，初始值为0
+ ```
+ 
  #### 类型转换
  ```
  to_string(int);  // int2string
