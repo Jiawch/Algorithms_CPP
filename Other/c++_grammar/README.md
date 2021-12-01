@@ -19,6 +19,17 @@
  matrix.resize(m, vector<int>(n)); // 分配一个m*n的初始空间，初始值为0
  ```
  
+ #### 编译、运行、调试
+ ```
+ g++ -g main.cpp -o main  // 编译
+ ./main                   // 运行
+ lldb ./main              // 调试
+   b：设置断点
+   r：开始调试
+   n：执行下一行
+   p：输出
+ ```
+ 
  #### 类型转换
  ```
  to_string(int);  // int2string
