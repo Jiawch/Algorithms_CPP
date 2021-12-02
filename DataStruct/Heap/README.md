@@ -14,6 +14,8 @@
  #include <queue>
  priority_queue<int, vector<int>, greater<int> > minHeap;
  priority_queue<int, vector<int>, less<int> > maxHeap;
+ 
+ // push, top, pop; 注意，这里和stack一样调用，而不是和queue一样
  ```
 
 ### 4 堆的应用
