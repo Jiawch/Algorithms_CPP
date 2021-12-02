@@ -19,6 +19,12 @@
  matrix.resize(m, vector<int>(n)); // 分配一个m*n的初始空间，初始值为0
  ```
  
+ #### 大小写转化
+ ```
+ tolower(char);
+ toupper(char);
+ ```
+ 
  #### 编译、运行、调试
  ```
  g++ -g main.cpp -o main  // 编译
