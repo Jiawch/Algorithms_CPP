@@ -57,13 +57,13 @@ ListNode* detectCycleEntry(ListNode* head) {
     if (fast == nullptr || fast->next == nullptr)
         return nullptr;
 
-    slow = head;
+    fast = head;
     while (slow != fast) {
         fast = fast->next;
         slow = slow->next;
     }
 
-    return slow;
+    return fast;
 }
 
 
