@@ -199,7 +199,7 @@ vector<vector<int>> levelOrder(TreeNode* root) {
     while (!q.empty()) {
         int n = q.size();   // 记录当前层的节点数
         vector<int> array;
-        while (int i = 0; i < n; i++) {  // 循环n次，把当前层的节点全部出队列
+        for (int i = 0; i < n; i++) {  // 循环n次，把当前层的节点全部出队列
             p = q.front();
             q.pop();
             array.push_back(p->val)
