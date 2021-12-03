@@ -18,6 +18,7 @@ int treeHeightNoRecursive (TreeNode* t) {
     return high;
 }
 
+// 后序遍历求树高
 void postOrder(TreeNode* t, int &high) {
     stack<TreeNode*> s;
     TreeNode *p = t,
@@ -41,4 +42,27 @@ void postOrder(TreeNode* t, int &high) {
             }
         }
     }
+}
+
+// 层序遍历求树高
+int maxDepth(TreeNode* root) {
+    if (root == nullptr)    return 0;
+    
+    TreeNode *p = root;
+    queue<TreeNode*> q;
+    q.push(p);
+    
+    int depth = 0;
+    while (!q.empty()) {
+        int n = q.size();
+        depth++;
+        for (int i = 0; i < n; i++) {
+            p = q.front();
+            q.pop();
+            if (p->left != nullptr)    q.push(p->left);
+            if (p->right != nullptr)   q.push(p->right);
+        }
+    }
+    
+    return depth;
 }
