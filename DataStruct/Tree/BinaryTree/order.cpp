@@ -169,18 +169,45 @@ void levelOrder(TreeNode<T> *t) {
  *！Date: 20211102
  * 层次遍历
  */
+// 碾平的层序遍历
 void levelOrder(TreeNode* root) {
-    if (!root) return;
+    if (root == nullptr)    return;
 
     TreeNode *p = root;
     queue<TreeNode*> q;
-
+    
     q.push(p);
     while (!q.empty()) {
         p = q.front();
-        q.pop();
-        visit(p->value);
-        if (p->left) q.push(p->left);
-        if (p->right) q.push(p->right);
+        p.pop();
+        visit(p);
+        if (p->left != nullptr)     q.push(p->left);
+        if (p->right != nullptr)    q.push(p->right);
     }
+}
+
+
+// 分层的层序遍历
+vector<vector<int>> levelOrder(TreeNode* root) {
+    if (root == nullptr)    return {};
+
+    vector<vector<int> > matrix;
+    TreeNode *p = root;
+    queue<TreeNode*> q;
+    q.push(p);
+
+    while (!q.empty()) {
+        int n = q.size();   // 记录当前层的节点数
+        vector<int> array;
+        while (int i = 0; i < n; i++) {  // 循环n次，把当前层的节点全部出队列
+            p = q.front();
+            q.pop();
+            array.push_back(p->val)
+            if (p->left != nullptr)     q.push(p->left);
+            if (p->right != nullptr)    q.push(p->right);
+        }
+        matrix.push_back(array);
+    }
+
+    return matrix;
 }
