@@ -40,6 +40,13 @@ void postOrder(TreeNode* root) {
     visit(root);
 }
 
+/*
+ * 层序遍历思想：
+ *  把每一层的数据单独存到一个数组中,
+ *  DFS函数需要加个参数depth(表示当前访问的节点所处的层数)和一个数组(保存结果)
+ *  若数组中已经有该层的数据，直接push_back,
+ *  否则，再压入一个数组，然后push_back;
+ */
 // 层序遍历，调用`levelOrder(root, 1, matrix);`； depth从1开始
 void levelOrder(TreeNode* root, int depth, vector<vector<int>>& matrix) {
     if (root == nullptr)    return {};
