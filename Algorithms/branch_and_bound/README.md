@@ -19,6 +19,9 @@ BFS(节点/图，参数)
 
 #### 树BFS
 
+- [树的层序遍历](./tree_bfs.cpp)
+- [树的高度](./tree_bfs.cpp)
+
 #### 图BFS
 
 #### 网格BFS
