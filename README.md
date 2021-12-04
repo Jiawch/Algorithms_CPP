@@ -21,6 +21,8 @@
  - [贪心法](./Algorithms/greedy_method)
  - [分治法](./Algorithms/divede_and_conquer_method)
  - [动态规划](./Algorithms/dynamic_programming)
+ - [回溯](./Algorithms/back_tracking)
+ - [分支限界](./Algorithm/branch_and_bound)
 
 ### 复杂度分析
  - [时间复杂度](./Complexity/README.md)
