@@ -21,7 +21,7 @@ void levelOrder(TreeNode* root, vector<vector<int>> &matrix) {
     while (!q.empty()) {
         int n = q.size();
         vector<int> array;
-        while (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             p = q.front();
             q.pop();
             array.push_back(p->val);
