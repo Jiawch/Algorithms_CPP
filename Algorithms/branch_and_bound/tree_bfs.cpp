@@ -45,7 +45,7 @@ int treeDepth(TreeNode* root) {
     while (!q.empty()) {
         int n = q.size();
         depth++;
-        while (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             p = q.front();
             q.pop();
             if (p->left != nullptr)  q.push(p->left);
