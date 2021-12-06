@@ -4,11 +4,13 @@
 
 模版
 ```
-DSF():
-    if 递归结束条件:
-        return;
-    for 枚举:
-        DFS() 
+DSF():                  ｜   DFS()
+    if 递归结束条件:      ｜       if 递归结束条件
+        return;         ｜           return;
+    访问;                |       for 枚举:
+    for 枚举:            |           选择;
+        DFS();          ｜           DFS();
+                        ｜           撤销选择;
 ```
 
 #### 2. 树DFS
