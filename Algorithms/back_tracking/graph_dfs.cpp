@@ -48,14 +48,11 @@ struct Graph {
 
 vector<bool> visited(MAX);  // 默认为0，即为false
 void DFS(Graph g, int i) {
-    // visit(g.vexs[i]);
-    // visited[i] = true;
+    visit(g.vexs[i]);
+    visited[i] = true;
 
     for (int j = 0; j < g.vexs.size(); j++) {
         if (g.adj_matrix[i][j] == 1 && visited[j] == false) {
-            // 注意，尽量保持在回溯前访问
-            visit(g.vexs[j]);
-            visited[j] = true;
             DFS(g, j);
         }
     }
