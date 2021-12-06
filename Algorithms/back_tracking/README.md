@@ -8,9 +8,10 @@ DSF():                  ｜   DFS()
     if 递归结束条件:      ｜       if 递归结束条件
         return;         ｜           return;
     访问;                |       for 枚举:
-    for 枚举:            |           选择;
-        DFS();          ｜           DFS();
-                        ｜           撤销选择;
+    for 枚举:            |           (if 未被访问)
+        DFS();          ｜               选择;
+                        ｜               DFS();
+                        ｜               撤销选择;
 ```
 
 #### 2. 树DFS
