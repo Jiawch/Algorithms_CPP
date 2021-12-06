@@ -1,5 +1,5 @@
 /*! 
- * DFS 实现树的四种遍历
+ * DFS 实现树的四种遍历, 全排列的组合
  * DFS(节点，参数):
     if (节点为空)   return;
     访问当前节点
@@ -123,6 +123,36 @@ void postOrderNonRecursive(TreeNode* root) {
             } else {
                 p = p->right;
             }
+        }
+    }
+}
+
+
+/*
+ * 全排列思想：
+ *  画类树图
+ *  要求每一条路径，则需要两个变量，
+ *  保存路径度变量array，保存全部路径度变量matrix
+ */
+vector<bool> visited(MAX);  // 默认为0，即为false
+void permutation(vector<int> nums, vector<int>& array, vector<vector<int>>& matrix) {
+    // 递归结束条件
+    if (nums.size() == array.size()) {
+        matrix.push_back(array);
+        return;
+    }
+
+    // for 枚举
+    for (int i = 0; i < nums.size(); i++) {
+        if (visited[i] == false) {
+            // 选择
+            array.push_back(nums[i]);
+            visited[i] = true;
+            // DFS
+            permutation(nums, array, matrix);
+            // 撤销
+            array.pop_back();
+            visited[i] = false;
         }
     }
 }
