@@ -40,6 +40,7 @@
  ```
  to_string(int);  // int2string
  stoi(string);    // string2int
+ str.push_back(c)
  ```
 
  #### 去重排序
