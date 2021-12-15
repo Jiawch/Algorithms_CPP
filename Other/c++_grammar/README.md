@@ -6,6 +6,14 @@
  char c = 'A';  // 65
  char c = '0';  // 48
  ```
+ 
+ #### find 获得下标
+ ```
+ auto it = find(a.begin(), a.end(), target);  // 返回迭代器，太难记，就用auto直接替代
+ auto i = distance(a.begin(), target);
+ 
+ int i = distance(a.begin(), find(a.begin(), a.end(), target));
+ ```
 
  #### map 中的 count 和 find
  ```
