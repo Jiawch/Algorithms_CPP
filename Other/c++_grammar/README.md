@@ -7,12 +7,26 @@
  char c = '0';  // 48
  ```
  
- #### find 获得下标
+ #### vector 常用操作
  ```
- auto it = find(a.begin(), a.end(), target);  // 返回迭代器，太难记，就用auto直接替代
- auto i = distance(a.begin(), target);
+ /* 二维数组初始化
+  */
+ vector<vector<int>> matrix;
+ matrix.resize(m, vector<int>(n));   // 分配一个m*n的初始空间，初始值为0
  
+ /* 查找
+  */
+ auto it = find(array.begin(), array.end(), target);  // 返回迭代器，太难记，就用auto直接替代
+ auto i = distance(array.begin(), it);
  int i = distance(a.begin(), find(a.begin(), a.end(), target));
+ 
+ /* 去重
+  `unique`函数的作用是“去除”容器或者数组中相邻元素的重复出现的元素，注意  
+ (1) 这里的去除并非真正意义的erase，而是将重复的元素放到容器的末尾，返回值是去重之后的尾地址。   
+ (2) unique针对的是相邻元素，所以对于顺序顺序错乱的数组成员，或者容器成员，需要先进行排序，可以调用std::sort()函数
+  */
+ sort(array.begin(), array.end());
+ array.erase(unique(array.begin(), array.end()), array.end());
  ```
 
  #### map 中的 count 和 find
@@ -21,10 +35,11 @@
  find: 返回的是被查找元素的位置，没有则返回map.end()
  ```
  
- #### vector 的 resize
+ #### string 常见操作
  ```
- vector<vector<int>> matrix;
- matrix.resize(m, vector<int>(n)); // 分配一个m*n的初始空间，初始值为0
+ /* 添加char
+  */
+ str.push_back(c);
  ```
  
  #### 大小写转化
@@ -48,14 +63,4 @@
  ```
  to_string(int);  // int2string
  stoi(string);    // string2int
- str.push_back(c)
- ```
-
- #### 去重排序
- `unique`函数的作用是“去除”容器或者数组中相邻元素的重复出现的元素，注意  
- (1) 这里的去除并非真正意义的erase，而是将重复的元素放到容器的末尾，返回值是去重之后的尾地址。   
- (2) unique针对的是相邻元素，所以对于顺序顺序错乱的数组成员，或者容器成员，需要先进行排序，可以调用std::sort()函数
- ```
- sort(a.begin(), a.end());
- a.erase(unique(a.begin(), a.end()), a.end());
  ```
