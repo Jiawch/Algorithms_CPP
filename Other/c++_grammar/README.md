@@ -29,10 +29,12 @@
  array.erase(unique(array.begin(), array.end()), array.end());
  ```
 
- #### map 中的 count 和 find
+ #### map 常见操作
  ```
+ /* 查找与计数
  count: 返回的是被查找元素的个数。注意，map中不存在相同元素，所以返回值只能是1或0。
  find: 返回的是被查找元素的位置，没有则返回map.end()
+  */
  ```
  
  #### string 常见操作
