@@ -21,11 +21,22 @@
 剑指 Offer 26. 树的子结构
  */
 
+/* 相同的树
+ */
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if (p == nullptr && q == nullptr)   return true;
+        if (p == nullptr || q == nullptr)   return false;
+        return p->val == q->val && isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+    }
+};
+
+
 /* 树的子结构（约定空树不是任意一个树的子结构）
  * 子结构：A是B的子结构，A的根节点不一定是B，也可以是B的子树中任一节点
  * 子树：A是B的子树，A的根节点是B
  */
-
 class Solution {
 public:
     bool isSubStructure(TreeNode* A, TreeNode* B) {     // B是A的子结构
