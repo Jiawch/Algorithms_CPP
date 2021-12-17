@@ -39,9 +39,10 @@
  
  #### string 常见操作
  ```
- /* 添加char
+ /* 添加
   */
- str.push_back(c);
+ str.push_back(char);
+ str.append(string);
  ```
  
  #### 大小写转化
