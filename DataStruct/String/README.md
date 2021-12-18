@@ -29,6 +29,7 @@ sort(s1.begin(), s1.end(), cmp);
 reverse(s1.begin(), s1.end());
 
 // 读取
+#include <sstream>
 istringstream ss(str);
 string s;
 while (ss >> s)    do sth.
