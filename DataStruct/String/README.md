@@ -30,6 +30,6 @@ reverse(s1.begin(), s1.end());
 
 // 读取
 istringstream ss(str);
-stiring s;
+string s;
 while (ss >> s)    do sth.
 ```
