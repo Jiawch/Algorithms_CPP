@@ -46,7 +46,13 @@
  
  /* 查找
   */
- str.find(subStr): 返回子串位置，没有则返回string::npos.
+ str.find(subStr): 返回子串位置，没有则返回str.npos.
+ 
+ /* 读取
+  */
+ istringstream ss(str);
+ string s;
+ while (ss >> s)  do sth.
  ```
  
  #### 大小写转化
