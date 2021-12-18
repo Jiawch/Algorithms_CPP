@@ -43,6 +43,10 @@
   */
  str.push_back(char);
  str.append(string);
+ 
+ /* 查找
+  */
+ str.find(subStr): 返回子串位置，没有则返回string::npos.
  ```
  
  #### 大小写转化
