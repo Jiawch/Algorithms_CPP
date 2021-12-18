@@ -28,4 +28,8 @@ sort(s1.begin(), s1.end(), cmp);
 // 反转（不返回）
 reverse(s1.begin(), s1.end());
 
+// 读取
+istringstream ss(str);
+stiring s;
+while (ss >> s)    do sth.
 ```
