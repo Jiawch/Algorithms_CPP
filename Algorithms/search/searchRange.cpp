@@ -178,9 +178,9 @@ int searchLast(vector<int> a, int target)
         }
     }
 
-    if (a[low] == target)
+    if (a[high] == target)    // 如果是求最后一个等于val的元素，则`if (a[high] <= targrt)`
     {
-        return low;
+        return high;
     }
     return -1;
 }
