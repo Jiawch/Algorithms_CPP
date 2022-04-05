@@ -63,3 +63,18 @@ int main () {
 }
 ```
 
+一个是静态函数，一个是类
+```
+static bool cmp(int a, int b) {
+    return a < b;
+}
+sort(arr.begin(), arr.end(), cmp)
+
+class cmp {
+    bool operator()(int a, int b) {
+        return a < b;
+    }
+};
+priority_queue<int, vector<int>, cmp> maxHeap;
+```
+
