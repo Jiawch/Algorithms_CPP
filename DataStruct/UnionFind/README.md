@@ -125,7 +125,41 @@ void union(int i, int j)
     }
 }
 
+```
+### 结构体实现
 
+这个[leecode](https://leetcode-cn.com/problems/evaluate-division/solution/399-chu-fa-qiu-zhi-nan-du-zhong-deng-286-w45d/)讲的很好
+```
+struct UnionFind {
+    vector<int>    parent;
+    vector<double> weight;
+
+    // 初始化
+    UnionFind (int n) {
+        for (int i = 0; i < n; i++) {
+            parent.push_back(i);
+            weight.push_back(1.0);
+        }
+    }
+
+    // 注意不能用 union, 会和库函数冲突
+    void _union(int x, int y, double value) {
+        int root_x = find(x);
+        int root_y = find(y);
+        if (root_x == root_y)   return;
+        parent[root_x] = root_y;
+        weight[root_x] = value * weight[y] / weight[x];
+    }
+
+    int find(int x) {
+        if (parent[x] != x) {
+            int tmp = parent[x];
+            parent[x] = find(parent[x]);
+            weight[x] *= weight[tmp];
+        }
+        return parent[x];
+    }
+};
 ```
 
 > *Reference*  
