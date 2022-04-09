@@ -17,6 +17,8 @@
  #include <set>
  #include <utility>
 
+ // 万能头文件，位于 /usr/local/include/bits
+ #include <bits/stdc++.h>
  using namespace std;
  ```
 
