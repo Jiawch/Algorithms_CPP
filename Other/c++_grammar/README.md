@@ -1,5 +1,25 @@
 ### C++ 语法
 
+ ### 头文件
+ ```
+ #include <iostream>
+ #include <cstdio>
+ #include <fstream>
+ #include <algorithm>
+ #include <cmath>
+ #include <deque>
+ #include <vector>
+ #include <queue>
+ #include <string>
+ #include <cstring>
+ #include <map>
+ #include <stack>
+ #include <set>
+ #include <utility>
+
+ using namespace std;
+ ```
+
  #### ASCII码
  ```
  char c = 'a';  // 97
