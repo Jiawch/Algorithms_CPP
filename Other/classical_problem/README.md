@@ -29,3 +29,7 @@
 #### [背包问题]
 - [特征](https://leetcode-cn.com/problems/word-break/solution/yi-tao-kuang-jia-jie-jue-bei-bao-wen-ti-kchg9/)
 - [模版](https://leetcode-cn.com/problems/coin-change/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-sq9n/)
+
+#### [股票问题]
+- [股票问题系列通解](https://leetcode-cn.com/circle/article/qiAgHn/)
+- [一种解法团灭买卖股票问题](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/solution/mai-mai-gu-piao-wen-ti-by-chen-wei-f-xvs1/)
