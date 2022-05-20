@@ -57,6 +57,18 @@
  count: 返回的是被查找元素的个数。注意，map中不存在相同元素，所以返回值只能是1或0。
  find: 返回的是被查找元素的位置，没有则返回map.end()
   */
+ 
+ /* 遍历
+  */
+ for (auto [k, v] : map)
+ 
+ /* 长度、大小
+  */
+ hash.size();
+ 
+ /* 删除 key
+  */
+ hash.earse(key);
  ```
  
  #### string 常见操作
