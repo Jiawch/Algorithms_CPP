@@ -62,7 +62,7 @@
 ```
 
 ### 刷题
-[牛客](https://www.nowcoder.com/ta/coding-interviews)
-[牛客之马克题解](https://www.nowcoder.com/profile/899694/codeBooks)
-[LFool's Notes](https://lfool.github.io/LFool-Notes/)
-[全栈潇晨](https://xiaochen1024.com/courseware/60b4f11ab1aa91002eb53b18)
+- [牛客](https://www.nowcoder.com/ta/coding-interviews)
+- [牛客之马克题解](https://www.nowcoder.com/profile/899694/codeBooks)
+- [LFool's Notes](https://lfool.github.io/LFool-Notes/)
+- [全栈潇晨](https://xiaochen1024.com/courseware/60b4f11ab1aa91002eb53b18)
