@@ -33,3 +33,7 @@
 #### [股票问题]
 - [股票问题系列通解](https://leetcode-cn.com/circle/article/qiAgHn/)
 - [一种解法团灭买卖股票问题](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/solution/mai-mai-gu-piao-wen-ti-by-chen-wei-f-xvs1/)
+
+#### [排列 / 组合 / 子集 问题](https://leetcode.cn/link/?target=https%3A%2F%2Flfool.github.io%2FLFool-Notes%2Falgorithm%2F排列-组合-子集问题.html)
+
+#### [秒杀所有岛屿题目](https://leetcode.cn/link/?target=https%3A%2F%2Flfool.github.io%2FLFool-Notes%2Falgorithm%2F秒杀所有岛屿题目(DFS).html)
