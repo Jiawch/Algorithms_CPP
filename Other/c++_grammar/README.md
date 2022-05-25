@@ -49,6 +49,13 @@
   */
  sort(array.begin(), array.end());
  array.erase(unique(array.begin(), array.end()), array.end());
+ 
+ /* 赋值
+  * /
+ vector<int> a = {1,2,3,4};
+ vector<int> b;
+ a.assign(b.begin(), b.end());  // a = {1,2,3,4}
+ a.assign(4, -1);               // a = {-1,-1,-1,-1}
  ```
 
  #### map 常见操作
