@@ -17,7 +17,13 @@
  
  // push, top, pop; 注意，这里和stack一样调用，而不是和queue一样
  
- // 自定义
+ // 自定义1
+ static bool cmp(int a, int b) {
+     return a < b;
+ }
+ priority_queue<int, vector<int>, decltype(&cmp)> maxHeap(cmp);
+ 
+ // 自定义2
  struct cmp {
     bool operator()(int a, int b) {
         return a < b;
