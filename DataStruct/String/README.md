@@ -17,7 +17,8 @@ s1.substr(pos, n);
 s1.replace(pos, n, s2);
 
 // 查找（找不到返回s.npos）
-s1.find(s2)
+s1.find(s2)  // 查找s1是否包含s2，找到则返回索引（索引必<s1.size())
+如果要判断找不到，可以用 `s1.find(s2) >= s1.size()` 等价于 `s1.find(s1) == string::npos`
 
 // 比较（相等时返回0；s1>s2时返回1，s1<s2时返回-1）
 if (s1 < s2) {}
