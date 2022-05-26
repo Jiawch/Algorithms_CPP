@@ -96,10 +96,15 @@
  while (ss >> s)  do sth.
  ```
  
- #### 大小写转化
+ #### 七个字母数字相关的函数
  ```
- tolower(char);
- toupper(char);
+islower(char c) 是否为小写字母
+isupper(char c) 是否为大写字母
+isdigit(char c) 是否为数字
+isalpha(char c) 是否为字母
+isalnum(char c) 是否为字母或者数字
+toupper(char c) 字母小转大
+tolower(char c) 字母大转小
  ```
  
  #### 编译、运行、调试
