@@ -6,6 +6,7 @@
 
 ### 2 实现
 [字典树](./Trie.h)
+[字典树 v2](./Trie.h#L234)
  - void **insert**(string word)：向字典树中插入单词word
  - bool **search**(string word)：在字典树中查找单词word，当字典树中存在单词word时返回true
  - bool **startsWith**(string prefix)：判断字典树中是否存在以prefix开头的前缀
