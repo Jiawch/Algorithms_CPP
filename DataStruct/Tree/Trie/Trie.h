@@ -118,7 +118,7 @@ bool Trie::startsWith(string prefix) {
 
 /*! Author: Jiawch
  *! Date: 2021-11-16
- * Trie树：插入、查找
+ * Trie树(v2)：插入、查找
  */
 
 
@@ -223,3 +223,53 @@ bool startWith(TrieNode* root, string word)
 
     return true;    
 }
+
+
+
+/*! Author: Jiawch
+ *! Date: 2022-05-28
+ * Trie树：插入、查找
+ */
+
+class TrieNode {
+public:
+    TrideNode(): isEnd(false), child(26, nullptr) {}
+    
+    void insert(string word) {
+        TrieNode *node = this;
+        for (auto c : word) {
+            if (node->child[c - 'a'] == nullptr)    node->child[c - 'a'] = new TrieNode();
+            node = node->child[c - 'a'];
+        }
+        node->isEnd = true;
+    }
+    
+    bool search(string word) {
+        TrieNode *node = this;
+        for (auto c : word) {
+            if (node->child[c - 'a'] == nullptr)    return false;
+            node = node->child[c - 'a'];
+        }
+        return node->isEnd;
+    }
+    
+    bool startsWith(string prefix) {
+        TrieNode *node = this;
+        for (auto c : prefix) {
+            if (node->child[c - 'a'] == nullptr)    return false;
+            node = node->child[c - 'a'];
+        }
+        return true;
+    }
+private:
+    bool isEnd;
+    vector<TrieNode*> child;
+};
+
+/**
+ * Your TrieNode object will be instantiated and called as such:
+ * TrieNode* obj = new TrieNode();
+ * obj->insert(word);
+ * bool param_2 = obj->search(word);
+ * bool param_3 = obj->startsWith(prefix);
+ */
