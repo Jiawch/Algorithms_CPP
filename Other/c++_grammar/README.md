@@ -12,6 +12,7 @@
  #include <queue>
  #include <string>
  #include <cstring>
+ #include <sstream>
  #include <map>
  #include <stack>
  #include <set>
