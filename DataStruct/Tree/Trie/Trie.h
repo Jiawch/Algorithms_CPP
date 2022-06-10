@@ -231,44 +231,52 @@ bool startWith(TrieNode* root, string word)
  * Trie树：插入、查找
  */
 
-class TrieNode {
+struct TrieNode {
+    bool isEnd;
+    vector<TrieNode*> child;
+    TrieNode(): isEnd(false), child(vector<TrieNode*>(26, nullptr)) {}
+};
+
+class Trie {
 public:
-    TrideNode(): isEnd(false), child(26, nullptr) {}
+    Trie() {
+        this->root = new TrieNode();
+    }
     
     void insert(string word) {
-        TrieNode *node = this;
+        TrieNode *node = this->root;
         for (auto c : word) {
-            if (node->child[c - 'a'] == nullptr)    node->child[c - 'a'] = new TrieNode();
+            if (!node->child[c - 'a'])  node->child[c - 'a'] = new TrieNode();
             node = node->child[c - 'a'];
         }
         node->isEnd = true;
+        return;
     }
     
     bool search(string word) {
-        TrieNode *node = this;
+        TrieNode *node = this->root;
         for (auto c : word) {
-            if (node->child[c - 'a'] == nullptr)    return false;
+            if (!node->child[c - 'a'])  return false;
             node = node->child[c - 'a'];
         }
         return node->isEnd;
     }
     
     bool startsWith(string prefix) {
-        TrieNode *node = this;
+        TrieNode *node = this->root;
         for (auto c : prefix) {
-            if (node->child[c - 'a'] == nullptr)    return false;
+            if (!node->child[c - 'a'])  return false;
             node = node->child[c - 'a'];
         }
         return true;
     }
 private:
-    bool isEnd;
-    vector<TrieNode*> child;
+    TrieNode *root;
 };
 
 /**
- * Your TrieNode object will be instantiated and called as such:
- * TrieNode* obj = new TrieNode();
+ * Your Trie object will be instantiated and called as such:
+ * Trie* obj = new Trie();
  * obj->insert(word);
  * bool param_2 = obj->search(word);
  * bool param_3 = obj->startsWith(prefix);
