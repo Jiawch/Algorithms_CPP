@@ -114,6 +114,8 @@ struct GraphList {
 /*! Author: Jiawch
  *! Date: 2021-11-11
  * 图的两种遍历v2
+ * 对于图的遍历，if (visited) 先判断还是后判断都无所谓，
+ * 但是对于环的判断，就需要把 if (visited) 放在开头判断，而不能出现在 for 里面，因为这样永远不会有环
  */
 
 struct Graph {
