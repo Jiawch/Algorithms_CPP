@@ -30,6 +30,9 @@
 - [特征](https://leetcode-cn.com/problems/word-break/solution/yi-tao-kuang-jia-jie-jue-bei-bao-wen-ti-kchg9/)
 - [模版](https://leetcode-cn.com/problems/coin-change/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-sq9n/)
 - [v2](https://leetcode.cn/problems/combination-sum-iv/solution/xi-wang-yong-yi-chong-gui-lu-gao-ding-bei-bao-wen-/)
+> 0-1, 完全
+> 最值，存在，组合
+> 理论上共6种，完全背包的组合问题可能需要考虑顺序，所以是7种
 
 #### [股票问题]
 - [股票问题系列通解](https://leetcode-cn.com/circle/article/qiAgHn/)
