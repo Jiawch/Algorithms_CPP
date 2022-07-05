@@ -45,3 +45,5 @@
 #### [蓄水池抽样](https://leetcode.cn/problems/random-pick-index/solution/zhong-gui-zhong-ju-xu-shui-chi-chou-yang-random-re/)
 - Q：总的样本数量未知，从所有样本中抽取若干个，要求每个样本被抽到的概率相等。
 - A：假设当前正要读取第n个数据，则我们以1/n的概率留下该数据，否则以(n-1)/n 的概率留下前n-1个数据中的一个。而前n-1个数组留下的那个概率为1/(n-1), 因此最终留下上次n-1个数中留下的那个数的概率为[1/(n-1)]\*[(n-1)/n] = 1/n,符合均匀分布的要求。
+
+#### [二叉树路径](https://leetcode.cn/problems/path-sum-ii/solution/yi-pian-wen-zhang-jie-jue-suo-you-er-cha-oo63/)
