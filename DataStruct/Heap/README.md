@@ -18,7 +18,7 @@
  // push, top, pop; 注意，这里和stack一样调用，而不是和queue一样
  
  // 自定义1
- static bool cmp(int a, int b) {
+ static bool cmp(int& a, int& b) {   // & 很重要，可以减少很多内存
      return a < b;
  }
  priority_queue<int, vector<int>, decltype(&cmp)> maxHeap(cmp);
