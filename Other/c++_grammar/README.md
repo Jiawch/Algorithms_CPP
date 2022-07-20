@@ -129,3 +129,8 @@ tolower(char c) 字母大转小
  to_string(int);  // int2string
  stoi(string);    // string2int
  ```
+
+ #### INT 溢出判断
+ ```
+ if (res > INT_MAX / 10 || res == INT_MAX / 10 && str[i] > '7')
+ ```
