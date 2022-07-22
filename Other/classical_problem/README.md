@@ -51,3 +51,5 @@
 - 对于点点遍历（只在最前和最后的DFS进行选择和撤销）
 
 #### [单调栈](https://programmercarl.com/0739.每日温度.html)
+
+#### [二分](https://leetcode.cn/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/)
