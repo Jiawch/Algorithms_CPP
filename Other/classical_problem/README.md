@@ -53,3 +53,5 @@
 #### [单调栈](https://programmercarl.com/0739.每日温度.html)
 
 #### [二分](https://leetcode.cn/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/)
+- lower_bound: 第一个 >= target 的指针
+- upper_bound：第一个 > target 的指针
