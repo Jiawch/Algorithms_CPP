@@ -57,3 +57,30 @@
 - upper_bound：第一个 > target 的指针
 
 #### [二叉树的中序后继](https://learnku.com/articles/40918)
+- 如果存在右子树，那往右走一边，然后一直往左走
+- 如果存在左子树，那向上找一个节点，该节点是其父节点的左子树
+
+#### [字符串解码问题]
+- [字符串解码](https://leetcode.cn/problems/decode-string/)
+- [计算器1](https://leetcode.cn/problems/basic-calculator/)
+- [计算器2](https://leetcode.cn/problems/basic-calculator-ii/)
+```
+int i = 0;
+for (; i < n; i++) {
+    if (s[i] == '(') {
+        i++;
+        递归
+    }
+    if (isdigit(s[i])) {
+    
+    }
+    if (!isdigit(s[i]) || i == n - 1) {
+    
+    }
+    if (s[i] == ')') {
+        i++;
+        递归
+    }
+}
+return;
+```
