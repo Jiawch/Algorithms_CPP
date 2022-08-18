@@ -31,7 +31,13 @@ reverse(s1.begin(), s1.end());
 
 // 读取
 #include <sstream>
-istringstream ss(str);
+stringstream ss(str);
 string s;
 while (ss >> s)    do sth.
+
+// 实现 python 的 split 操作
+stringstream ss(s);
+string sub_s;
+while (getline(ss, sub_s, '_')) do sth.
 ```
+
