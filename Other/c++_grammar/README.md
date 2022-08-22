@@ -137,5 +137,5 @@ tolower(char c) 字母大转小
 
  #### cin.get()
  ```
- https://www.nowcoder.com/practice/5727b69bf80541c98c06ab90cf4c509e?tpId=101&rp=1&ru=%2Fexam%2Foj%2Fta&qru=%2Fexam%2Foj%2Fta&sourceUrl=%2Fexam%2Foj%2Fta%3Fpage%3D1%26tpId%3D101%26type%3D101&difficulty=&judgeStatus=&tags=&title=打印&gioEnter=menu
+ [例子](https://www.nowcoder.com/practice/5727b69bf80541c98c06ab90cf4c509e?tpId=101&rp=1&ru=%2Fexam%2Foj%2Fta&qru=%2Fexam%2Foj%2Fta&sourceUrl=%2Fexam%2Foj%2Fta%3Fpage%3D1%26tpId%3D101%26type%3D101&difficulty=&judgeStatus=&tags=&title=打印&gioEnter=menu)
  ```
