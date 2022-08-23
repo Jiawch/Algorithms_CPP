@@ -37,51 +37,22 @@
  - [机器调度](../../Algorithms/greedy_method/LPTSchedule.cpp)
  - 霍夫曼编码
 
-### 5 大顶堆例子
+#### 大顶堆例子
 ```
-#include <iostream>
-#include <vector>
-#include <queue>
+// 一
+priority_queue<int, vector<int>, less<int>> maxHeap;
 
-using namespace std;
-
-
-int main () {
-    vector<int> a = {50, 45, 40, 20, 25, 35, 30, 10, 15};
-    stable_sort(a.begin(), a.end(), greater<int>());
-    for (int i = 0; i < a.size(); i++) {
-        cout << a[i] << ' ';            // 50 45 40 35 30 25 20 15 10 
-    }
-    cout << endl;
-
-    vector<int> b = {50, 45, 40, 20, 25, 35, 30, 10, 15};
-    priority_queue<int, vector<int>, less<int> > maxHeap;
-    for (int i = 0; i < b.size(); i++) {
-        maxHeap.push(b[i]);
-    }
-    while (!maxHeap.empty()) {
-        cout << maxHeap.top() << ' ';   // 50 45 40 35 30 25 20 15 10 
-        maxHeap.pop();
-    }
-    cout << endl;
-
-    return 0;
-}
-```
-
-一个是静态函数，一个是类
-```
-static bool cmp(int a, int b) {
+// 二
+static bool cmp(int& a, int& b) {
     return a < b;
 }
-sort(arr.begin(), arr.end(), cmp)
+priority_queue<int, vector<int>, decltype(&cmp)> maxHeap(cmp);
 
-class cmp {
-    bool operator()(int a, int b) {
-        return a < b;
-    }
+// 三
+auto cmp = [&](int& a, int& b) {
+    return a < b;
 };
-priority_queue<int, vector<int>, cmp> maxHeap;
+priority_queue<int, vector<int>, decltype(cmp)> maxHeap(cmp);
 ```
 
 ### 堆排
