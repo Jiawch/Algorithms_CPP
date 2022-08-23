@@ -53,6 +53,11 @@ auto cmp = [&](int& a, int& b) {
     return a < b;
 };
 priority_queue<int, vector<int>, decltype(cmp)> maxHeap(cmp);
+
+// 四
+static bool cmp(pair<int, int>& a, pair<int, int>& b) {
+    return a.first < b.first || a.first == b.first && a.second > b.second;
+}
 ```
 
 ### 堆排
